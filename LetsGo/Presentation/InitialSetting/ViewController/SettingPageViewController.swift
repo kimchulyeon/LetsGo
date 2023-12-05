@@ -25,25 +25,3 @@ class SettingPageViewController: UIPageViewController {
         
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//
-//struct MainViewControllerPresentable: UIViewControllerRepresentable {
-//    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//        
-//    }
-//    func makeUIViewController(context: Context) -> some UIViewController {
-//        SettingPageViewController()
-//    }
-//}
-//
-//struct ViewControllerPrepresentable_PreviewProvider: PreviewProvider {
-//    static var previews: some View {
-//        MainViewControllerPresentable()
-//            .ignoresSafeArea()
-//    }
-//}
-//
-//#endif
-//

@@ -16,12 +16,19 @@ class FirstSettingViewController: UIViewController {
         return lb
     }()
     
+    private let descLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "그룹 설정을 해주세요"
+        return lb
+    }()
+    
     private let button1: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "house"), for: .normal)
         btn.setTitle("기타", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.backgroundColor = .yellow
+        btn.snp.makeConstraints { $0.height.equalTo(45) }
         return btn
     }()
     
@@ -47,6 +54,7 @@ class FirstSettingViewController: UIViewController {
         let sv = UIStackView(arrangedSubviews: [button1, button2, button3])
         sv.axis = .vertical
         sv.spacing = 16
+        sv.distribution = .fillEqually
         return sv
     }()
     
@@ -72,10 +80,17 @@ class FirstSettingViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
         }
         
+        view.addSubview(descLabel)
+        descLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+        }
+        
         view.addSubview(buttonStackView)
         buttonStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(32)
+            make.centerY.equalToSuperview()
+            make.top.greaterThanOrEqualTo(descLabel.snp.bottom).offset(16)
             make.leading.equalTo(view.snp.leading).offset(24)
         }
         
@@ -113,3 +128,4 @@ struct ViewController_PreviewProvider: PreviewProvider {
     }
 }
 #endif
+
