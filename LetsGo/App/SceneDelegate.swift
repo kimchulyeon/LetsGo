@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = HomeViewController()
+        window?.rootViewController = FirstSettingViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
