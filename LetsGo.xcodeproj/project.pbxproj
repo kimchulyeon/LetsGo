@@ -21,9 +21,17 @@
 		6E758CB22B1F08B9008C3DDC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6E758CB12B1F08B9008C3DDC /* RxSwift */; };
 		6E758CBA2B1F0A92008C3DDC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CB92B1F0A92008C3DDC /* OnboardingViewController.swift */; };
 		6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CBB2B1F0A9B008C3DDC /* OnboardingViewModel.swift */; };
-		6E758CC12B1F0ACF008C3DDC /* FirstSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC02B1F0ACF008C3DDC /* FirstSettingViewController.swift */; };
-		6E758CC42B1F0AE0008C3DDC /* FirstSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC32B1F0AE0008C3DDC /* FirstSettingViewModel.swift */; };
-		6E758CC62B1F14D6008C3DDC /* SettingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC52B1F14D6008C3DDC /* SettingPageViewController.swift */; };
+		6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */; };
+		6E758CC42B1F0AE0008C3DDC /* TransportationSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */; };
+		6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CC82B1FFDB2008C3DDC /* SelectButton.swift */; };
+		6E758CCD2B2001E7008C3DDC /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CCC2B2001E7008C3DDC /* UIColor+Ext.swift */; };
+		6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CD32B200317008C3DDC /* ThemeColor.swift */; };
+		6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CD52B2008CC008C3DDC /* ThemeFont.swift */; };
+		6E758CD82B200954008C3DDC /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CD72B200954008C3DDC /* UIView+Ext.swift */; };
+		6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CDA2B200AD4008C3DDC /* LabelFactory.swift */; };
+		6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */; };
+		6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */; };
+		6E758CE42B20376A008C3DDC /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE32B20376A008C3DDC /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +66,17 @@
 		6E758C792B1DC616008C3DDC /* LetsGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6E758CB92B1F0A92008C3DDC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		6E758CBB2B1F0A9B008C3DDC /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		6E758CC02B1F0ACF008C3DDC /* FirstSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingViewController.swift; sourceTree = "<group>"; };
-		6E758CC32B1F0AE0008C3DDC /* FirstSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingViewModel.swift; sourceTree = "<group>"; };
-		6E758CC52B1F14D6008C3DDC /* SettingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPageViewController.swift; sourceTree = "<group>"; };
+		6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationSettingVC.swift; sourceTree = "<group>"; };
+		6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationSettingVM.swift; sourceTree = "<group>"; };
+		6E758CC82B1FFDB2008C3DDC /* SelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButton.swift; sourceTree = "<group>"; };
+		6E758CCC2B2001E7008C3DDC /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		6E758CD32B200317008C3DDC /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		6E758CD52B2008CC008C3DDC /* ThemeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFont.swift; sourceTree = "<group>"; };
+		6E758CD72B200954008C3DDC /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		6E758CDA2B200AD4008C3DDC /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAlarm.swift; sourceTree = "<group>"; };
+		6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnFixedAlarm.swift; sourceTree = "<group>"; };
+		6E758CE32B20376A008C3DDC /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 		6E758C522B1DC615008C3DDC /* LetsGo */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CCA2B2001D7008C3DDC /* Util */,
 				6E758CB52B1F096A008C3DDC /* Data */,
 				6E758CB42B1F0967008C3DDC /* Domain */,
 				6E758CB32B1F0940008C3DDC /* Presentation */,
@@ -165,6 +182,8 @@
 		6E758CB42B1F0967008C3DDC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CDD2B203319008C3DDC /* Entity */,
+				6E758CDC2B203315008C3DDC /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 		6E758CBD2B1F0A9F008C3DDC /* InitialSetting */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CC72B1FFD9D008C3DDC /* View */,
 				6E758CBF2B1F0ABD008C3DDC /* ViewModel */,
 				6E758CBE2B1F0ABA008C3DDC /* ViewController */,
 			);
@@ -213,8 +233,7 @@
 		6E758CBE2B1F0ABA008C3DDC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6E758CC02B1F0ACF008C3DDC /* FirstSettingViewController.swift */,
-				6E758CC52B1F14D6008C3DDC /* SettingPageViewController.swift */,
+				6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -222,9 +241,86 @@
 		6E758CBF2B1F0ABD008C3DDC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6E758CC32B1F0AE0008C3DDC /* FirstSettingViewModel.swift */,
+				6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6E758CC72B1FFD9D008C3DDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CC82B1FFDB2008C3DDC /* SelectButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6E758CCA2B2001D7008C3DDC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CD92B200AC7008C3DDC /* Factory */,
+				6E758CD22B20030B008C3DDC /* Color */,
+				6E758CCF2B2002C8008C3DDC /* Font */,
+				6E758CCB2B2001DC008C3DDC /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6E758CCB2B2001DC008C3DDC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CCC2B2001E7008C3DDC /* UIColor+Ext.swift */,
+				6E758CD72B200954008C3DDC /* UIView+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6E758CCF2B2002C8008C3DDC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CD52B2008CC008C3DDC /* ThemeFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		6E758CD22B20030B008C3DDC /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CD32B200317008C3DDC /* ThemeColor.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		6E758CD92B200AC7008C3DDC /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CDA2B200AD4008C3DDC /* LabelFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		6E758CDC2B203315008C3DDC /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		6E758CDD2B203319008C3DDC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CE22B203751008C3DDC /* Common */,
+				6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */,
+				6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		6E758CE22B203751008C3DDC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CE32B20376A008C3DDC /* Common.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,13 +463,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E758CE42B20376A008C3DDC /* Common.swift in Sources */,
+				6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */,
+				6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */,
 				6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */,
-				6E758CC42B1F0AE0008C3DDC /* FirstSettingViewModel.swift in Sources */,
+				6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */,
+				6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */,
+				6E758CC42B1F0AE0008C3DDC /* TransportationSettingVM.swift in Sources */,
 				6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */,
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
-				6E758CC12B1F0ACF008C3DDC /* FirstSettingViewController.swift in Sources */,
-				6E758CC62B1F14D6008C3DDC /* SettingPageViewController.swift in Sources */,
+				6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */,
+				6E758CD82B200954008C3DDC /* UIView+Ext.swift in Sources */,
+				6E758CCD2B2001E7008C3DDC /* UIColor+Ext.swift in Sources */,
+				6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */,
+				6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */,
 				6E758CBA2B1F0A92008C3DDC /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
