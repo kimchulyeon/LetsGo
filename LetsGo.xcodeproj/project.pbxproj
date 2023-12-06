@@ -32,6 +32,8 @@
 		6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */; };
 		6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */; };
 		6E758CE42B20376A008C3DDC /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE32B20376A008C3DDC /* Common.swift */; };
+		6E758CE62B2052D5008C3DDC /* DayOfWeekSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */; };
+		6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedAlarm.swift; sourceTree = "<group>"; };
 		6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnFixedAlarm.swift; sourceTree = "<group>"; };
 		6E758CE32B20376A008C3DDC /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekSettingVC.swift; sourceTree = "<group>"; };
+		6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekSettingVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */,
+				6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */,
+				6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -470,10 +476,12 @@
 				6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */,
 				6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */,
 				6E758CC42B1F0AE0008C3DDC /* TransportationSettingVM.swift in Sources */,
+				6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */,
 				6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */,
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
 				6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */,
+				6E758CE62B2052D5008C3DDC /* DayOfWeekSettingVC.swift in Sources */,
 				6E758CD82B200954008C3DDC /* UIView+Ext.swift in Sources */,
 				6E758CCD2B2001E7008C3DDC /* UIColor+Ext.swift in Sources */,
 				6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */,

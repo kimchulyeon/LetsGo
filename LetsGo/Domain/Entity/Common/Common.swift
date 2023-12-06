@@ -17,7 +17,7 @@ enum Transportation: Int, CaseIterable {
 }
 
 /// 요일
-enum DayOfWeek {
+enum DayOfWeek: Int, CaseIterable {
     case mon
     case tue
     case wed

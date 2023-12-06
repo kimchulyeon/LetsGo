@@ -14,12 +14,12 @@ class TransportationSettingVM {
     private let bag = DisposeBag()
     
     struct Input {
-        let selectButtonTapped: Observable<Int>
+        let transportationButtonTapped: Observable<(Transportation, Int)>
         let nextButtonTapped: Observable<Void>
     }
     
     struct Output {
-        let selectedButtonIndex = BehaviorRelay<Int>(value: 404)
+        let selectedTransportation = BehaviorRelay<(Transportation, Int)>(value: (.none, 404))
         let moveToNext = PublishRelay<Void>()
     }
     
@@ -27,9 +27,10 @@ class TransportationSettingVM {
     func transform(input: Input) -> Output {
         let output = Output()
         
-        input.selectButtonTapped
-            .subscribe { index in
-                output.selectedButtonIndex.accept(index)
+        input.transportationButtonTapped
+            .subscribe { (transportation) in
+                print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 교통수단 : \(transportation) \n")
+                output.selectedTransportation.accept(transportation)
             }
             .disposed(by: bag)
         

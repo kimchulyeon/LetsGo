@@ -1,8 +1,8 @@
 //
-//  TransportationSettingVC.swift
+//  DayOfWeekSettingVC.swift
 //  LetsGo
 //
-//  Created by chulyeon kim on 12/5/23.
+//  Created by chulyeon kim on 12/6/23.
 //
 
 import UIKit
@@ -10,27 +10,31 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class TransportationSettingVC: UIViewController {
+class DayOfWeekSettingVC: UIViewController {
     //MARK: - properties
-    private let viewModel = TransportationSettingVM()
+    private let viewModel = DayOfWeekSettingVM()
     private let bag = DisposeBag()
     
     private let titleLabel: UILabel = {
         let lb = LabelFactory.basicLabel(font: .bold, size: 23, color: ThemeColor.text)
-        lb.text = "가는 방법 설정"
+        lb.text = "요일 설정"
         return lb
     }()
     private let descLabel: UILabel = {
         let lb = LabelFactory.basicLabel()
-        lb.text = "시간 측정을 위해 가는 방법을 설정해주세요"
+        lb.text = "알람이 필요한 요일을 골라주세요"
         return lb
     }()
-    private let button1 = SelectButton(text: "도보", emoji: "🦶")
-    private let button2 = SelectButton(text: "대중교통", emoji: "🚇")
-    private let button3 = SelectButton(text: "자동차", emoji: "🚘")
-    private let button4 = SelectButton(text: "자전거", emoji: "🚴")
+    private let button1 = SelectButton(text: "월요일", emoji: "😫")
+    private let button2 = SelectButton(text: "화요일", emoji: "😣")
+    private let button3 = SelectButton(text: "수요일", emoji: "😟")
+    private let button4 = SelectButton(text: "목요일", emoji: "😳")
+    private let button5 = SelectButton(text: "금요일", emoji: "😄")
+    private let button6 = SelectButton(text: "토요일", emoji: "🤣")
+    private let button7 = SelectButton(text: "일요일", emoji: "🥲")
+    
     private lazy var buttonStackView: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [button1, button2, button3, button4])
+        let sv = UIStackView(arrangedSubviews: [button1, button2, button3, button4, button5, button6, button7])
         sv.axis = .vertical
         sv.spacing = 16
         sv.distribution = .fillEqually
@@ -71,7 +75,7 @@ class TransportationSettingVC: UIViewController {
         }
         
         button1.snp.makeConstraints { make in
-            make.height.equalTo(55)
+            make.height.equalTo(40)
         }
 
         view.addSubview(nextButton)
@@ -85,37 +89,41 @@ class TransportationSettingVC: UIViewController {
     
     private func bindViewModel() {
         guard let buttons = buttonStackView.arrangedSubviews as? [UIButton] else { return }
-        let buttonTappedObservable = Observable.merge(buttons.enumerated().map { index, button in
-            return button.rx.tap.map { (Transportation.allCases[index], index) }
+        let buttonTapObservable = Observable.merge(buttons.enumerated().map { index, button  in
+            return button.rx.tap.map { (DayOfWeek.allCases[index], index) }
         })
         
-        let input = TransportationSettingVM.Input(transportationButtonTapped: buttonTappedObservable,
-                                                  nextButtonTapped: nextButton.rx.tap.asObservable())
+        let input = DayOfWeekSettingVM.Input(dayButtonTapped: buttonTapObservable,
+                                             nextButtonTapped: nextButton.rx.tap.asObservable())
         
         let output = viewModel.transform(input: input)
         
-        output.selectedTransportation
-            .subscribe(onNext: { [unowned self] (transportation, index) in
-                if transportation == .none {
+        output.selectedDays
+            .subscribe { [unowned self] selectedDaysListRelay in
+                guard let days = selectedDaysListRelay.element else { return }
+                buttons.forEach { $0.backgroundColor = ThemeColor.primary }
+                
+                if days.isEmpty {
                     nextButton.isEnabled = false
                     nextButton.backgroundColor = ThemeColor.weakSecondary
                 }
                 else {
                     nextButton.isEnabled = true
                     nextButton.backgroundColor = ThemeColor.secondary
-                    buttons.forEach{ $0.backgroundColor = ThemeColor.primary }
-                    buttons[index].backgroundColor = ThemeColor.strongPrimary
                     
-                    print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 교통수단 : \(transportation) \n")
+                    days.forEach { (day, index) in
+                        buttons[index].backgroundColor = ThemeColor.strongPrimary
+                    }
+                    print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 요일 : \(days) \n")
                 }
-                
-            })
+            }
             .disposed(by: bag)
         
         output.moveToNext
             .subscribe { _ in
-                print("✅ 다음 단계로 이동 >>>> ")
+                print("다음으로 이동 >>>>")
             }
             .disposed(by: bag)
     }
 }
+
