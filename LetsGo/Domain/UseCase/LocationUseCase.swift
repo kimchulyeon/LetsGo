@@ -9,9 +9,16 @@ import Foundation
 import MapKit
 import RxSwift
 
-class LocationUseCase {
-    private let locationRepository = LocationSearchRepository()
+class LocationUseCase: LocationUseCaseProtocol {
+    // MARK: - properties
+    private let locationRepository: LocationSearchRepositoryProtocol
     
+    // MARK: - lifecycle
+    init(locationRepository: LocationSearchRepositoryProtocol) {
+        self.locationRepository = locationRepository
+    }
+    
+    // MARK: - method
     func locationSearch(type: SearchType, query: String) -> Observable<[Location]> {
         switch type {
             

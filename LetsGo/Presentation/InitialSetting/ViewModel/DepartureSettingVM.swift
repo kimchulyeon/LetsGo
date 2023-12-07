@@ -16,7 +16,7 @@ enum SearchType {
 
 class DepartureSettingVM {
     //MARK: - properties
-    private let locationUseCase = LocationUseCase()
+    private let locationUseCase: LocationUseCaseProtocol
     private let bag = DisposeBag()
     
     struct Input {
@@ -27,6 +27,11 @@ class DepartureSettingVM {
     struct Output {
         let searchedLocationLists = BehaviorRelay<[Location]>(value: [])
         let buttonType = BehaviorRelay<SearchType>(value: .keyword)
+    }
+    
+    // MARK: - lifecycle
+    init(locationUseCase: LocationUseCaseProtocol) {
+        self.locationUseCase = locationUseCase
     }
     
     //MARK: - method

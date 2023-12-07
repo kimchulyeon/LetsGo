@@ -17,7 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = DepartureSettingVC()
+        
+        let locationSearchDatasource = LocationSearchDatasource()
+        let locationSearchRepository = LocationSearchRepository(locationSearchdatasource: locationSearchDatasource)
+        let locationUseCase = LocationUseCase(locationRepository: locationSearchRepository)
+        
+        let viewModel = DepartureSettingVM(locationUseCase: locationUseCase)
+        window?.rootViewController = DepartureSettingVC(viewModel: viewModel)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -9,10 +9,18 @@ import Foundation
 import RxSwift
 import MapKit
 
-class LocationSearchRepository {
+class LocationSearchRepository: LocationSearchRepositoryProtocol {
+    // MARK: - properties
     private let bag = DisposeBag()
-    private let locationSearchdatasource = LocationSearchDatasource()
+    private let locationSearchdatasource: LocationSearchDatasourceProtocol
     
+    // MARK: - lifecycle
+    init(locationSearchdatasource: LocationSearchDatasourceProtocol) {
+        self.locationSearchdatasource = locationSearchdatasource
+    }
+    
+    // MARK: - method
+    /// 키워드로 장소 검색
     func searchLocationWithKeyword(_ query: String) -> Observable<[Location]> {
         return locationSearchdatasource.searchLocationWithKeyword(query)
             .flatMap({ result -> Observable<[Location]> in
@@ -32,7 +40,7 @@ class LocationSearchRepository {
             })
     }
     
-    
+    /// 주소로 장소 검색
     func searchLocationWithAddress(_ query: String) -> Observable<[Location]> {
         return locationSearchdatasource.searchLocationWithAddress(query)
             .flatMap({ result -> Observable<[Location]> in

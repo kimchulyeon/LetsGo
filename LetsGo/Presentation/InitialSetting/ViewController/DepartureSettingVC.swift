@@ -12,7 +12,7 @@ import RxCocoa
 
 class DepartureSettingVC: UIViewController {
     //MARK: - properties
-    private let viewModel = DepartureSettingVM()
+    private let viewModel: DepartureSettingVM
     private let bag = DisposeBag()
 
     private let titleLabel: UILabel = {
@@ -34,6 +34,15 @@ class DepartureSettingVC: UIViewController {
     }()
 
     //MARK: - Lifecycle
+    init(viewModel: DepartureSettingVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -139,30 +148,4 @@ class DepartureSettingVC: UIViewController {
         searchTypeButtonView.addressButton.setTitleColor(ThemeColor.text, for: .normal)
     }
 }
-
-#if DEBUG
-    import SwiftUI
-    struct Preview: UIViewControllerRepresentable {
-
-        // 여기 ViewController를 변경해주세요
-        func makeUIViewController(context: Context) -> UIViewController {
-            DepartureSettingVC()
-        }
-
-        func updateUIViewController(_ uiView: UIViewController, context: Context) {
-            // leave this empty
-        }
-    }
-
-    struct ViewController_PreviewProvider: PreviewProvider {
-        static var previews: some View {
-            Group {
-                Preview()
-                    .edgesIgnoringSafeArea(.all)
-                    .previewDisplayName("Preview")
-                    .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro"))
-            }
-        }
-    }
-#endif
 
