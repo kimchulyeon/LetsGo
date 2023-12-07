@@ -101,6 +101,7 @@ class DayOfWeekSettingVC: UIViewController {
         output.selectedDays
             .subscribe { [unowned self] selectedDaysListRelay in
                 guard let days = selectedDaysListRelay.element else { return }
+                print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 요일 : \(days) \n")
                 buttons.forEach { $0.backgroundColor = ThemeColor.primary }
                 
                 if days.isEmpty {
@@ -114,7 +115,6 @@ class DayOfWeekSettingVC: UIViewController {
                     days.forEach { (day, index) in
                         buttons[index].backgroundColor = ThemeColor.strongPrimary
                     }
-                    print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 요일 : \(days) \n")
                 }
             }
             .disposed(by: bag)

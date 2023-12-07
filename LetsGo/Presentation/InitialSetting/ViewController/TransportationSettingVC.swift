@@ -96,6 +96,7 @@ class TransportationSettingVC: UIViewController {
         
         output.selectedTransportation
             .subscribe(onNext: { [unowned self] (transportation, index) in
+                print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 교통수단 : \(transportation) \n")
                 if transportation == .none {
                     nextButton.isEnabled = false
                     nextButton.backgroundColor = ThemeColor.weakSecondary
@@ -105,8 +106,6 @@ class TransportationSettingVC: UIViewController {
                     nextButton.backgroundColor = ThemeColor.secondary
                     buttons.forEach{ $0.backgroundColor = ThemeColor.primary }
                     buttons[index].backgroundColor = ThemeColor.strongPrimary
-                    
-                    print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 교통수단 : \(transportation) \n")
                 }
                 
             })

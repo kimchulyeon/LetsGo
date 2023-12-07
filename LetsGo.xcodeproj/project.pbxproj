@@ -34,6 +34,19 @@
 		6E758CE42B20376A008C3DDC /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE32B20376A008C3DDC /* Common.swift */; };
 		6E758CE62B2052D5008C3DDC /* DayOfWeekSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */; };
 		6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */; };
+		6E758CEA2B2150A0008C3DDC /* DepartureSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CE92B2150A0008C3DDC /* DepartureSettingVC.swift */; };
+		6E758CEC2B2150BA008C3DDC /* DepartureSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CEB2B2150BA008C3DDC /* DepartureSettingVM.swift */; };
+		6E758CEE2B215246008C3DDC /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CED2B215246008C3DDC /* SearchTextField.swift */; };
+		6E758CF12B216428008C3DDC /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CF02B216428008C3DDC /* LocationService.swift */; };
+		6E758CF82B216AD4008C3DDC /* LocationSearchDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */; };
+		6E758CFA2B2179F1008C3DDC /* LocationSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */; };
+		6E758CFC2B217AC6008C3DDC /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */; };
+		6E758CFE2B218D23008C3DDC /* SearchedLocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */; };
+		6E758D002B218F32008C3DDC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFF2B218F32008C3DDC /* Location.swift */; };
+		6E758D022B219121008C3DDC /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D012B219121008C3DDC /* URLSessionService.swift */; };
+		6E758D052B219191008C3DDC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D042B219191008C3DDC /* Network.swift */; };
+		6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D062B21A80B008C3DDC /* LocationCell.swift */; };
+		6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +94,19 @@
 		6E758CE32B20376A008C3DDC /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekSettingVC.swift; sourceTree = "<group>"; };
 		6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekSettingVM.swift; sourceTree = "<group>"; };
+		6E758CE92B2150A0008C3DDC /* DepartureSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSettingVC.swift; sourceTree = "<group>"; };
+		6E758CEB2B2150BA008C3DDC /* DepartureSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSettingVM.swift; sourceTree = "<group>"; };
+		6E758CED2B215246008C3DDC /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		6E758CF02B216428008C3DDC /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchDatasource.swift; sourceTree = "<group>"; };
+		6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchRepository.swift; sourceTree = "<group>"; };
+		6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
+		6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationDTO.swift; sourceTree = "<group>"; };
+		6E758CFF2B218F32008C3DDC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		6E758D012B219121008C3DDC /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
+		6E758D042B219191008C3DDC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		6E758D062B21A80B008C3DDC /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +212,7 @@
 		6E758CB42B1F0967008C3DDC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CF62B216AB2008C3DDC /* Repository */,
 				6E758CDD2B203319008C3DDC /* Entity */,
 				6E758CDC2B203315008C3DDC /* UseCase */,
 			);
@@ -195,6 +222,8 @@
 		6E758CB52B1F096A008C3DDC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CF52B216A01008C3DDC /* DataSource */,
+				6E758CF42B2169FE008C3DDC /* Mapping */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -239,6 +268,7 @@
 			children = (
 				6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */,
 				6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */,
+				6E758CE92B2150A0008C3DDC /* DepartureSettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -248,6 +278,7 @@
 			children = (
 				6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */,
 				6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */,
+				6E758CEB2B2150BA008C3DDC /* DepartureSettingVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -256,6 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				6E758CC82B1FFDB2008C3DDC /* SelectButton.swift */,
+				6E758CED2B215246008C3DDC /* SearchTextField.swift */,
+				6E758D062B21A80B008C3DDC /* LocationCell.swift */,
+				6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +297,8 @@
 		6E758CCA2B2001D7008C3DDC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6E758D032B219180008C3DDC /* Constant */,
+				6E758CEF2B21641E008C3DDC /* Service */,
 				6E758CD92B200AC7008C3DDC /* Factory */,
 				6E758CD22B20030B008C3DDC /* Color */,
 				6E758CCF2B2002C8008C3DDC /* Font */,
@@ -307,6 +343,7 @@
 		6E758CDC2B203315008C3DDC /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -317,6 +354,7 @@
 				6E758CE22B203751008C3DDC /* Common */,
 				6E758CDE2B2034E4008C3DDC /* FixedAlarm.swift */,
 				6E758CE02B2034EF008C3DDC /* UnFixedAlarm.swift */,
+				6E758CFF2B218F32008C3DDC /* Location.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -327,6 +365,47 @@
 				6E758CE32B20376A008C3DDC /* Common.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		6E758CEF2B21641E008C3DDC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CF02B216428008C3DDC /* LocationService.swift */,
+				6E758D012B219121008C3DDC /* URLSessionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6E758CF42B2169FE008C3DDC /* Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */,
+			);
+			path = Mapping;
+			sourceTree = "<group>";
+		};
+		6E758CF52B216A01008C3DDC /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		6E758CF62B216AB2008C3DDC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6E758D032B219180008C3DDC /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				6E758D042B219191008C3DDC /* Network.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,23 +549,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E758CE42B20376A008C3DDC /* Common.swift in Sources */,
+				6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */,
 				6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */,
 				6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */,
 				6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */,
 				6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */,
+				6E758CFE2B218D23008C3DDC /* SearchedLocationDTO.swift in Sources */,
+				6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */,
 				6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */,
+				6E758CF12B216428008C3DDC /* LocationService.swift in Sources */,
 				6E758CC42B1F0AE0008C3DDC /* TransportationSettingVM.swift in Sources */,
 				6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */,
+				6E758CF82B216AD4008C3DDC /* LocationSearchDatasource.swift in Sources */,
 				6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */,
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
+				6E758D002B218F32008C3DDC /* Location.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
+				6E758CEE2B215246008C3DDC /* SearchTextField.swift in Sources */,
 				6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */,
 				6E758CE62B2052D5008C3DDC /* DayOfWeekSettingVC.swift in Sources */,
+				6E758CFC2B217AC6008C3DDC /* LocationUseCase.swift in Sources */,
+				6E758CEA2B2150A0008C3DDC /* DepartureSettingVC.swift in Sources */,
 				6E758CD82B200954008C3DDC /* UIView+Ext.swift in Sources */,
 				6E758CCD2B2001E7008C3DDC /* UIColor+Ext.swift in Sources */,
+				6E758D052B219191008C3DDC /* Network.swift in Sources */,
+				6E758D022B219121008C3DDC /* URLSessionService.swift in Sources */,
+				6E758CEC2B2150BA008C3DDC /* DepartureSettingVM.swift in Sources */,
 				6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */,
 				6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */,
 				6E758CBA2B1F0A92008C3DDC /* OnboardingViewController.swift in Sources */,
+				6E758CFA2B2179F1008C3DDC /* LocationSearchRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +755,7 @@
 				DEVELOPMENT_TEAM = 7YM75J8UJJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsGo/App/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "거리 계산을 통해 향상된 알람 기능을 제공해드리기 위해 위치 권한이 꼭 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -690,6 +783,7 @@
 				DEVELOPMENT_TEAM = 7YM75J8UJJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsGo/App/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "거리 계산을 통해 향상된 알람 기능을 제공해드리기 위해 위치 권한이 꼭 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
