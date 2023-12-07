@@ -12,5 +12,6 @@ enum BaseURL: String {
 }
 
 enum URLPath: String {
-    case kakaoLocationSearchPath = "local/search/keyword.json"
+    case kakaoLocationSearchWithKeyword = "local/search/keyword.json"
+    case kakaoLocationSearchWithAddress = "local/search/address.json"
 }

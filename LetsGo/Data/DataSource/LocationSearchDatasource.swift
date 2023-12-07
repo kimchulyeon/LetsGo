@@ -13,13 +13,21 @@ class LocationSearchDatasource {
     
     private let urlsessionService = URLSessionService()
 
-    func searchLocation(query: String) -> Observable<Result<Data, NetworkError>> {
+    func searchLocationWithKeyword(_ query: String) -> Observable<Result<Data, NetworkError>> {
         
         return urlsessionService.request(urlString: .kakao,
-                                  urlPath: .kakaoLocationSearchPath,
+                                  urlPath: .kakaoLocationSearchWithKeyword,
                                   method: .get,
                                   headers: ["Authorization": "KakaoAK 623b1302ef889c06586c7583464dc69d"],
                                   queryString: ["page": "1", "size": "15", "sort": "accuracy", "query": query])
+    }
+    
+    func searchLocationWithAddress(_ query: String) -> Observable<Result<Data, NetworkError>> {
+        return urlsessionService.request(urlString: .kakao,
+                                         urlPath: .kakaoLocationSearchWithAddress,
+                                         method: .get,
+                                         headers: ["Authorization": "KakaoAK 623b1302ef889c06586c7583464dc69d"],
+                                         queryString: ["page": "1", "size": "15", "analyze_type": "similar", "query": query])
     }
 
 }

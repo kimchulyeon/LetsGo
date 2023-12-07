@@ -12,7 +12,15 @@ import RxSwift
 class LocationUseCase {
     private let locationRepository = LocationSearchRepository()
     
-    func locationSearch(query: String) -> Observable<[Location]> {
-        return locationRepository.searchLocationWithKeyword(query)
+    func locationSearch(type: SearchType, query: String) -> Observable<[Location]> {
+        switch type {
+            
+        case .keyword:
+            return locationRepository.searchLocationWithKeyword(query)
+        case .address:
+            return locationRepository.searchLocationWithAddress(query)
+        }
+        
     }
 }
+

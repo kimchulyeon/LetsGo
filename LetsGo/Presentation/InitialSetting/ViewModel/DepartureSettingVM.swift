@@ -36,9 +36,11 @@ class DepartureSettingVM {
         input.inputTextField
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .flatMapLatest({ [weak self] query -> Observable<[Location]> in
-                print("입력 검색어 : \(query)")
                 guard let weakSelf = self, query.isEmpty == false else { return Observable.empty() }
-                return weakSelf.locationUseCase.locationSearch(query: query)
+                let currentSearchType = output.buttonType.value
+                print("입력 검색어 : \(query)")
+                print("버튼 타입 : \(currentSearchType)")
+                return weakSelf.locationUseCase.locationSearch(type: currentSearchType, query: query)
             })
             .subscribe(onNext: { locations in
                 output.searchedLocationLists.accept(locations)
@@ -47,6 +49,7 @@ class DepartureSettingVM {
         
         input.searchTypeButtonTapped
             .subscribe { type in
+                output.searchedLocationLists.accept([])
                 output.buttonType.accept(type)
             }
             .disposed(by: bag)

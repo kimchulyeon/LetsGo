@@ -41,12 +41,13 @@
 		6E758CF82B216AD4008C3DDC /* LocationSearchDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */; };
 		6E758CFA2B2179F1008C3DDC /* LocationSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */; };
 		6E758CFC2B217AC6008C3DDC /* LocationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */; };
-		6E758CFE2B218D23008C3DDC /* SearchedLocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */; };
+		6E758CFE2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFD2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift */; };
 		6E758D002B218F32008C3DDC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758CFF2B218F32008C3DDC /* Location.swift */; };
 		6E758D022B219121008C3DDC /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D012B219121008C3DDC /* URLSessionService.swift */; };
 		6E758D052B219191008C3DDC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D042B219191008C3DDC /* Network.swift */; };
 		6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D062B21A80B008C3DDC /* LocationCell.swift */; };
 		6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */; };
+		6E758D0B2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D0A2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,12 +102,13 @@
 		6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchDatasource.swift; sourceTree = "<group>"; };
 		6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchRepository.swift; sourceTree = "<group>"; };
 		6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCase.swift; sourceTree = "<group>"; };
-		6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationDTO.swift; sourceTree = "<group>"; };
+		6E758CFD2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationWithKeywordDTO.swift; sourceTree = "<group>"; };
 		6E758CFF2B218F32008C3DDC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		6E758D012B219121008C3DDC /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
 		6E758D042B219191008C3DDC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6E758D062B21A80B008C3DDC /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeButtonView.swift; sourceTree = "<group>"; };
+		6E758D0A2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationWithAddressDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,7 +381,8 @@
 		6E758CF42B2169FE008C3DDC /* Mapping */ = {
 			isa = PBXGroup;
 			children = (
-				6E758CFD2B218D23008C3DDC /* SearchedLocationDTO.swift */,
+				6E758CFD2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift */,
+				6E758D0A2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift */,
 			);
 			path = Mapping;
 			sourceTree = "<group>";
@@ -548,13 +551,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E758D0B2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift in Sources */,
 				6E758CE42B20376A008C3DDC /* Common.swift in Sources */,
 				6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */,
 				6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */,
 				6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */,
 				6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */,
 				6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */,
-				6E758CFE2B218D23008C3DDC /* SearchedLocationDTO.swift in Sources */,
+				6E758CFE2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift in Sources */,
 				6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */,
 				6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */,
 				6E758CF12B216428008C3DDC /* LocationService.swift in Sources */,

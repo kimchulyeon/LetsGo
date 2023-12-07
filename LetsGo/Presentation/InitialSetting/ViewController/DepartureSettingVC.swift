@@ -101,7 +101,7 @@ class DepartureSettingVC: UIViewController {
 
         output.searchedLocationLists
             .subscribe { locations in
-                print(locations)
+                print("리스트 : \(locations)")
             }
             .disposed(by: bag)
 //            .bind(to: locationTableView.rx.items) { tableview, row, element in
@@ -114,8 +114,9 @@ class DepartureSettingVC: UIViewController {
 
         output.buttonType
             .subscribe { [unowned self] type in
-            updateSearchTypeButton(type: type)
-        }
+                searchTextField.textField.text = nil
+                updateSearchTypeButton(type: type)
+            }
             .disposed(by: bag)
     }
 

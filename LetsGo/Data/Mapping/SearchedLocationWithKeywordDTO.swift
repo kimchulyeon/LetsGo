@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct SearchedLocationResponse: Codable {
-    let documents: [SearchedLocationDTO]
-    let meta: Meta
+struct SearchedLocationWithKeywordResponse: Codable {
+    let documents: [SearchedLocationWithKeywordDTO]
+    let meta: KeyWordLocationSearchMeta
 }
 
 // MARK: - Document
-struct SearchedLocationDTO: Codable {
+struct SearchedLocationWithKeywordDTO: Codable {
     let addressName, categoryGroupCode, categoryGroupName, categoryName: String?
     let distance, id, phone, placeName: String?
     let placeURL: String?
@@ -31,16 +31,16 @@ struct SearchedLocationDTO: Codable {
         case x, y
     }
     
+    // ENTITY로 변환
     func toDomain() -> Location {
         return Location(id: id, address: addressName, placeName: placeName, x: x, y: y, phone: phone, category: categoryGroupName)
     }
 }
 
-// MARK: - Meta
-struct Meta: Codable {
+struct KeyWordLocationSearchMeta: Codable {
     let isEnd: Bool?
     let pageableCount: Int?
-    let sameName: SameName?
+    let sameName: KeywordLocationSameName?
     let totalCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -51,8 +51,7 @@ struct Meta: Codable {
     }
 }
 
-// MARK: - SameName
-struct SameName: Codable {
+struct KeywordLocationSameName: Codable {
     let keyword: String?
     let region: [String]?
     let selectedRegion: String?
@@ -62,3 +61,4 @@ struct SameName: Codable {
         case selectedRegion = "selected_region"
     }
 }
+
