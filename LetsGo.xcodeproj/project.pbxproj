@@ -51,6 +51,8 @@
 		6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D062B21A80B008C3DDC /* LocationCell.swift */; };
 		6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */; };
 		6E758D0B2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D0A2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift */; };
+		6E758D0D2B22B9B5008C3DDC /* LocationCellInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D0C2B22B9B5008C3DDC /* LocationCellInfoView.swift */; };
+		6E758D102B22BA47008C3DDC /* LocationCellBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758D0F2B22BA47008C3DDC /* LocationCellBadgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		6E758D062B21A80B008C3DDC /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeButtonView.swift; sourceTree = "<group>"; };
 		6E758D0A2B21B7A5008C3DDC /* SearchedLocationWithAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedLocationWithAddressDTO.swift; sourceTree = "<group>"; };
+		6E758D0C2B22B9B5008C3DDC /* LocationCellInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellInfoView.swift; sourceTree = "<group>"; };
+		6E758D0F2B22BA47008C3DDC /* LocationCellBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellBadgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +326,8 @@
 				6E758CED2B215246008C3DDC /* SearchTextField.swift */,
 				6E758D062B21A80B008C3DDC /* LocationCell.swift */,
 				6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */,
+				6E758D0C2B22B9B5008C3DDC /* LocationCellInfoView.swift */,
+				6E758D0F2B22BA47008C3DDC /* LocationCellBadgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -602,9 +608,11 @@
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6E758D002B218F32008C3DDC /* Location.swift in Sources */,
 				3756A8D22B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift in Sources */,
+				6E758D102B22BA47008C3DDC /* LocationCellBadgeView.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
 				6E758CEE2B215246008C3DDC /* SearchTextField.swift in Sources */,
 				6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */,
+				6E758D0D2B22B9B5008C3DDC /* LocationCellInfoView.swift in Sources */,
 				6E758CE62B2052D5008C3DDC /* DayOfWeekSettingVC.swift in Sources */,
 				6E758CFC2B217AC6008C3DDC /* LocationUseCase.swift in Sources */,
 				6E758CEA2B2150A0008C3DDC /* DepartureSettingVC.swift in Sources */,

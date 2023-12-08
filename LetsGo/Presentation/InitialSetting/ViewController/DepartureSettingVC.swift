@@ -29,7 +29,10 @@ class DepartureSettingVC: UIViewController {
     private let searchTextField = SearchTextField()
     private let locationTableView: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = ThemeColor.lightGray
+        tv.backgroundColor = .clear
+        tv.register(LocationCell.self, forCellReuseIdentifier: LocationCell.identifier)
+        tv.separatorStyle = .none
+        tv.showsVerticalScrollIndicator = false
         return tv
     }()
 
@@ -48,6 +51,12 @@ class DepartureSettingVC: UIViewController {
 
         setupUI()
         bindViewModel()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        searchTextField.textField.endEditing(true)
     }
 
     //MARK: - method
@@ -71,6 +80,7 @@ class DepartureSettingVC: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.top.equalTo(descLabel.snp.bottom).offset(16)
+            make.height.equalTo(35)
         }
 
         view.addSubview(searchTextField)
@@ -82,15 +92,27 @@ class DepartureSettingVC: UIViewController {
 
         view.addSubview(locationTableView)
         locationTableView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(8)
-            make.trailing.equalToSuperview().offset(-8)
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(searchTextField.snp.bottom).offset(24)
         }
     }
 
     private func bindViewModel() {
-        let searchTypeButtonObservable = Observable<SearchType>.create { [unowned self] emitter in
+        let searchTypeButtonObservable = setupTypeButtonEvent()
+
+        let input = DepartureSettingVM.Input(inputTextField: searchTextField.textField.rx.text.orEmpty.asObservable(),
+                                             searchTypeButtonTapped: searchTypeButtonObservable)
+        let output = viewModel.transform(input: input)
+
+        hiddenTableViewDependsOnListCount(output: output)
+        setupSearchResultTableView(output: output)
+        updateTypeButton(output: output)
+        setupTableViewSelectEvent(output: output)
+    }
+    
+    private func setupTypeButtonEvent() -> Observable<SearchType> {
+        return Observable<SearchType>.create { [unowned self] emitter in
             let keywordDisposable = searchTypeButtonView.keywordButton.rx.tap
                 .subscribe(onNext: {
                 emitter.onNext(.keyword)
@@ -103,49 +125,68 @@ class DepartureSettingVC: UIViewController {
 
             return Disposables.create(keywordDisposable, addressDisposable)
         }
-
-        let input = DepartureSettingVM.Input(inputTextField: searchTextField.textField.rx.text.orEmpty.asObservable(),
-                                             searchTypeButtonTapped: searchTypeButtonObservable)
-        let output = viewModel.transform(input: input)
-
+    }
+    
+    private func hiddenTableViewDependsOnListCount(output: DepartureSettingVM.Output) {
         output.searchedLocationLists
-            .subscribe { locations in
-                print("리스트 : \(locations)")
+            .observe(on: MainScheduler.instance)
+            .subscribe { [unowned self] list in
+                guard let locationList = list.element else { return }
+                if locationList.isEmpty {
+                    locationTableView.isHidden = true
+                    return
+                }
+                locationTableView.isHidden = false
             }
             .disposed(by: bag)
-//            .bind(to: locationTableView.rx.items) { tableview, row, element in
-//            #warning("테이블뷰 셀 구성")
-//            let cell = tableview.dequeueReusableCell(withIdentifier: "locationCell") as! LocationCell
-//                cell.configure(elemen)
-//            return cell
-//        }
-            
-
+    }
+    
+    private func setupSearchResultTableView(output: DepartureSettingVM.Output) {
+        output.searchedLocationLists
+            .bind(to: locationTableView.rx.items) { tableview, row, locationData in
+                guard let cell = tableview.dequeueReusableCell(withIdentifier: LocationCell.identifier) as? LocationCell else { return UITableViewCell() }
+                cell.updateUI(with: locationData)
+                return cell
+            }
+            .disposed(by: bag)
+    }
+    
+    private func updateTypeButton(output: DepartureSettingVM.Output) {
         output.buttonType
             .subscribe { [unowned self] type in
-                searchTextField.textField.text = nil
-                updateSearchTypeButton(type: type)
+                resetSearch()
+                
+                switch type {
+                case .keyword:
+                    searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.primary
+                    searchTypeButtonView.keywordButton.setTitleColor(.white, for: .normal)
+                case .address:
+                    searchTypeButtonView.addressButton.backgroundColor = ThemeColor.primary
+                    searchTypeButtonView.addressButton.setTitleColor(.white, for: .normal)
+                }
             }
             .disposed(by: bag)
     }
-
-    private func updateSearchTypeButton(type: SearchType) {
-        resetSearchTypeButton()
-        switch type {
-        case .keyword:
-            searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.primary
-            searchTypeButtonView.keywordButton.setTitleColor(.white, for: .normal)
-        case .address:
-            searchTypeButtonView.addressButton.backgroundColor = ThemeColor.primary
-            searchTypeButtonView.addressButton.setTitleColor(.white, for: .normal)
-        }
+    
+    private func setupTableViewSelectEvent(output: DepartureSettingVM.Output) {
+        locationTableView.rx.itemSelected
+           .subscribe(onNext: { [unowned self] indexPath in
+               searchTextField.textField.endEditing(true)
+               let selectedLocation = output.searchedLocationLists.value[indexPath.row]
+               print("Selected location: \(selectedLocation)")
+               locationTableView.deselectRow(at: indexPath, animated: true)
+               
+               #warning("여기서 확인 모달 띄우기")
+           })
+           .disposed(by: bag)
     }
 
-    private func resetSearchTypeButton() {
+    private func resetSearch() {
+        searchTextField.textField.text = nil
         searchTypeButtonView.keywordButton.backgroundColor = .clear
-        searchTypeButtonView.keywordButton.setTitleColor(ThemeColor.text, for: .normal)
+        searchTypeButtonView.keywordButton.setTitleColor(ThemeColor.secondary, for: .normal)
         searchTypeButtonView.addressButton.backgroundColor = .clear
-        searchTypeButtonView.addressButton.setTitleColor(ThemeColor.text, for: .normal)
+        searchTypeButtonView.addressButton.setTitleColor(ThemeColor.secondary, for: .normal)
     }
 }
 

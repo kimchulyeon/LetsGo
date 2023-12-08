@@ -36,7 +36,8 @@ struct SearchedLocationWithAddressDTO: Codable {
                         x: x,
                         y: y,
                         phone: nil,
-                        category: nil)
+                        category: nil,
+                        postNumber: roadAddress?.zoneNo)
     }
 }
 

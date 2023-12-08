@@ -15,4 +15,5 @@ struct Location {
     let y: String?
     let phone: String?
     let category: String?
+    let postNumber: String?
 }

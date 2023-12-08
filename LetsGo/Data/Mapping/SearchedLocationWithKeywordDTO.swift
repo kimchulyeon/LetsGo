@@ -33,7 +33,14 @@ struct SearchedLocationWithKeywordDTO: Codable {
     
     // ENTITY로 변환
     func toDomain() -> Location {
-        return Location(id: id, address: addressName, placeName: placeName, x: x, y: y, phone: phone, category: categoryGroupName)
+        return Location(id: id, 
+                        address: addressName,
+                        placeName: placeName,
+                        x: x,
+                        y: y,
+                        phone: phone,
+                        category: categoryGroupName,
+                        postNumber: nil)
     }
 }
 
