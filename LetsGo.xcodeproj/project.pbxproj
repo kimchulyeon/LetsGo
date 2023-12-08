@@ -10,6 +10,9 @@
 		3756A8CE2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8CD2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift */; };
 		3756A8D02B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8CF2B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift */; };
 		3756A8D22B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8D12B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift */; };
+		6E693E132B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E122B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift */; };
+		6E693E152B22EF2E00B82F1F /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E142B22EF2E00B82F1F /* BottomSheetView.swift */; };
+		6E693E172B22FE2800B82F1F /* ConfirmBottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */; };
 		6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C532B1DC615008C3DDC /* AppDelegate.swift */; };
 		6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C552B1DC615008C3DDC /* SceneDelegate.swift */; };
 		6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C5C2B1DC615008C3DDC /* LetsGo.xcdatamodeld */; };
@@ -76,6 +79,9 @@
 		3756A8CD2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseProtocol.swift; sourceTree = "<group>"; };
 		3756A8CF2B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3756A8D12B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchDatasourceProtocol.swift; sourceTree = "<group>"; };
+		6E693E122B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBottomSheetVC.swift; sourceTree = "<group>"; };
+		6E693E142B22EF2E00B82F1F /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBottomSheetVM.swift; sourceTree = "<group>"; };
 		6E758C502B1DC615008C3DDC /* LetsGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E758C532B1DC615008C3DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E758C552B1DC615008C3DDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 				6E758CC02B1F0ACF008C3DDC /* TransportationSettingVC.swift */,
 				6E758CE52B2052D5008C3DDC /* DayOfWeekSettingVC.swift */,
 				6E758CE92B2150A0008C3DDC /* DepartureSettingVC.swift */,
+				6E693E122B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -315,6 +322,7 @@
 				6E758CC32B1F0AE0008C3DDC /* TransportationSettingVM.swift */,
 				6E758CE72B205788008C3DDC /* DayOfWeekSettingVM.swift */,
 				6E758CEB2B2150BA008C3DDC /* DepartureSettingVM.swift */,
+				6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 				6E758D082B21ABCF008C3DDC /* SearchTypeButtonView.swift */,
 				6E758D0C2B22B9B5008C3DDC /* LocationCellInfoView.swift */,
 				6E758D0F2B22BA47008C3DDC /* LocationCellBadgeView.swift */,
+				6E693E142B22EF2E00B82F1F /* BottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,7 +605,9 @@
 				6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */,
 				6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */,
 				6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */,
+				6E693E132B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift in Sources */,
 				6E758CDB2B200AD4008C3DDC /* LabelFactory.swift in Sources */,
+				6E693E152B22EF2E00B82F1F /* BottomSheetView.swift in Sources */,
 				6E758CFE2B218D23008C3DDC /* SearchedLocationWithKeywordDTO.swift in Sources */,
 				6E758D072B21A80B008C3DDC /* LocationCell.swift in Sources */,
 				6E758CD42B200317008C3DDC /* ThemeColor.swift in Sources */,
@@ -608,6 +619,7 @@
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6E758D002B218F32008C3DDC /* Location.swift in Sources */,
 				3756A8D22B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift in Sources */,
+				6E693E172B22FE2800B82F1F /* ConfirmBottomSheetVM.swift in Sources */,
 				6E758D102B22BA47008C3DDC /* LocationCellBadgeView.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
 				6E758CEE2B215246008C3DDC /* SearchTextField.swift in Sources */,

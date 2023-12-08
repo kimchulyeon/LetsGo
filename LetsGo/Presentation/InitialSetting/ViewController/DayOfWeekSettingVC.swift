@@ -21,7 +21,7 @@ class DayOfWeekSettingVC: UIViewController {
         return lb
     }()
     private let descLabel: UILabel = {
-        let lb = LabelFactory.basicLabel()
+        let lb = LabelFactory.basicLabel(font: .regular, size: 14, color: ThemeColor.weakText)
         lb.text = "알람이 필요한 요일을 골라주세요"
         return lb
     }()

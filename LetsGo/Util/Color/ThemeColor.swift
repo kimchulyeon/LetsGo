@@ -18,6 +18,7 @@ struct ThemeColor {
     static let weakText = UIColor(hexCode: "606973")
     static let white = UIColor(hexCode: "eeeeee")
     static let darkGray = UIColor(hexCode: "918e8a")
+    static let blueGray = UIColor(hexCode: "#8599B6")
     static let lightGray = UIColor(hexCode: "E8E1D9")
     static let moreLightGray = UIColor(hexCode: "#f5f2ed")
     static let veryLightGray = UIColor(hexCode: "#f8f6f3")

@@ -21,7 +21,7 @@ class DepartureSettingVC: UIViewController {
         return lb
     }()
     private let descLabel: UILabel = {
-        let lb = LabelFactory.basicLabel()
+        let lb = LabelFactory.basicLabel(font: .regular, size: 14, color: ThemeColor.weakText)
         lb.text = "시간 측정을 위해 출발지를 설정해주세요"
         return lb
     }()
@@ -176,7 +176,7 @@ class DepartureSettingVC: UIViewController {
                print("Selected location: \(selectedLocation)")
                locationTableView.deselectRow(at: indexPath, animated: true)
                
-               #warning("여기서 확인 모달 띄우기")
+               presentBottomSheet(with: output, and: selectedLocation)
            })
            .disposed(by: bag)
     }
@@ -187,6 +187,15 @@ class DepartureSettingVC: UIViewController {
         searchTypeButtonView.keywordButton.setTitleColor(ThemeColor.secondary, for: .normal)
         searchTypeButtonView.addressButton.backgroundColor = .clear
         searchTypeButtonView.addressButton.setTitleColor(ThemeColor.secondary, for: .normal)
+    }
+    
+    private func presentBottomSheet(with output: DepartureSettingVM.Output, and selectedLocation: Location) {
+        let viewModel = ConfirmBottomSheetVM()
+        let bottomSheetVC = ConfirmBottomSheetVC(viewModel: viewModel)
+        bottomSheetVC.updateUI(with: selectedLocation, and: output.buttonType.value)
+        bottomSheetVC.modalPresentationStyle = .overCurrentContext
+        bottomSheetVC.modalTransitionStyle = .crossDissolve
+        present(bottomSheetVC, animated: true)
     }
 }
 

@@ -21,7 +21,7 @@ class TransportationSettingVC: UIViewController {
         return lb
     }()
     private let descLabel: UILabel = {
-        let lb = LabelFactory.basicLabel()
+        let lb = LabelFactory.basicLabel(font: .regular, size: 14, color: ThemeColor.weakText)
         lb.text = "시간 측정을 위해 가는 방법을 설정해주세요"
         return lb
     }()
