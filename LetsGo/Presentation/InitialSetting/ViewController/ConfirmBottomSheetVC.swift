@@ -7,10 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class ConfirmBottomSheetVC: UIViewController {
     //MARK: - properties
     private let viewModel: ConfirmBottomSheetVM
+    private let bag = DisposeBag()
     
     private let dimmedView: UIView = {
         let v = UIView()
@@ -65,18 +67,26 @@ class ConfirmBottomSheetVC: UIViewController {
     }
     
     private func bindViewModel() {
-        #warning("바텀시티 바인딩 >>>> ")
-//        let cancelButtonTapObservable = bottomSheetView.cancelButton.rx.tap.asObservable()
-//        let confirmButtonTapObservable = bottomSheetView.confirmButton.rx.tap
-//            .flatMap {  _ in
-//                #warning("HERE")
-//            }
-//        let input = ConfirmBottomSheetVM.Input(cancelButtonTapped: cancelButtonTapObservable,
-//                                               confirmButtonTapped: <#T##Observable<Location>#>)
-//        let output = viewModel.transform(input: input)
+//        #warning("바텀시티 바인딩 >>>> ")
+        let cancelButtonTapObservable = bottomSheetView.cancelButton.rx.tap.asObservable()
+        let confirmButtonTapObservable = bottomSheetView.confirmButton.rx.tap.asObservable()
+         
+        let input = ConfirmBottomSheetVM.Input(cancelButtonTapped: cancelButtonTapObservable,
+                                               confirmButtonTapped: confirmButtonTapObservable)
+        
+        let output = viewModel.transform(input: input)
+        
+        output.dismissBottomSheet
+            .subscribe { [weak self] _ in
+                guard let weakSelf = self else { return }
+                weakSelf.dismiss(animated: true)
+            }
+            .disposed(by: bag)
+        
     }
     
     func updateUI(with location: Location, and buttonType: SearchType) {
+        viewModel.selectedLocation.onNext(location)
         bottomSheetView.updateUI(with: location, and: buttonType)
         viewModel.selectedLocation.onNext(location)
     }

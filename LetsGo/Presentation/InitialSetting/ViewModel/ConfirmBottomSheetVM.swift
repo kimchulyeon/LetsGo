@@ -17,7 +17,7 @@ class ConfirmBottomSheetVM {
     
     struct Input {
         let cancelButtonTapped: Observable<Void>
-        let confirmButtonTapped: Observable<Location>
+        let confirmButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -37,8 +37,8 @@ class ConfirmBottomSheetVM {
             .disposed(by: bag)
         
         input.confirmButtonTapped
-            .subscribe { location in
-                print("네 맞이요! : \(location)")
+            .subscribe { [weak self] _ in
+                print(self?.selectedLocation)
             }
             .disposed(by: bag)
         

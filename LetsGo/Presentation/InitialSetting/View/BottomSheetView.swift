@@ -95,7 +95,7 @@ class BottomSheetView: UIView {
         buttonStackView.snp.makeConstraints { make in
             make.leading.equalTo(noticeLabel.snp.leading)
             make.trailing.equalTo(noticeLabel.snp.trailing)
-            make.bottom.equalTo(snp.bottom).offset(-8)
+            make.bottom.equalTo(snp.bottom).offset(-24)
         }
     }
     
