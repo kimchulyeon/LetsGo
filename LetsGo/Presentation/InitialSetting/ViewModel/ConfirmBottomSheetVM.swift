@@ -38,6 +38,7 @@ class ConfirmBottomSheetVM {
         
         input.confirmButtonTapped
             .subscribe { [weak self] _ in
+                #warning("확인 버튼 눌렀을 때 선택된 장소 정보 가지고 있는지? 선택된 장보 정소 보관 확인")
                 print(self?.selectedLocation)
             }
             .disposed(by: bag)
