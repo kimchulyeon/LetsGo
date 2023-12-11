@@ -15,6 +15,9 @@
 		6E693E172B22FE2800B82F1F /* ConfirmBottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */; };
 		6E693E192B269C2900B82F1F /* DestinationSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E182B269C2900B82F1F /* DestinationSettingVC.swift */; };
 		6E693E1B2B269C5100B82F1F /* DestinationSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E1A2B269C5100B82F1F /* DestinationSettingVM.swift */; };
+		6E693E1D2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E1C2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift */; };
+		6E693E1F2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E1E2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift */; };
+		6E693E212B26C4EA00B82F1F /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E202B26C4EA00B82F1F /* DateFormatterService.swift */; };
 		6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C532B1DC615008C3DDC /* AppDelegate.swift */; };
 		6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C552B1DC615008C3DDC /* SceneDelegate.swift */; };
 		6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C5C2B1DC615008C3DDC /* LetsGo.xcdatamodeld */; };
@@ -86,6 +89,9 @@
 		6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBottomSheetVM.swift; sourceTree = "<group>"; };
 		6E693E182B269C2900B82F1F /* DestinationSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSettingVC.swift; sourceTree = "<group>"; };
 		6E693E1A2B269C5100B82F1F /* DestinationSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSettingVM.swift; sourceTree = "<group>"; };
+		6E693E1C2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTimeSettingVC.swift; sourceTree = "<group>"; };
+		6E693E1E2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalTimeSettingVM.swift; sourceTree = "<group>"; };
+		6E693E202B26C4EA00B82F1F /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterService.swift; sourceTree = "<group>"; };
 		6E758C502B1DC615008C3DDC /* LetsGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E758C532B1DC615008C3DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E758C552B1DC615008C3DDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 				6E758CE92B2150A0008C3DDC /* DepartureSettingVC.swift */,
 				6E693E122B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift */,
 				6E693E182B269C2900B82F1F /* DestinationSettingVC.swift */,
+				6E693E1C2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -329,6 +336,7 @@
 				6E758CEB2B2150BA008C3DDC /* DepartureSettingVM.swift */,
 				6E693E162B22FE2800B82F1F /* ConfirmBottomSheetVM.swift */,
 				6E693E1A2B269C5100B82F1F /* DestinationSettingVM.swift */,
+				6E693E1E2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -426,6 +434,7 @@
 			children = (
 				6E758CF02B216428008C3DDC /* LocationService.swift */,
 				6E758D012B219121008C3DDC /* URLSessionService.swift */,
+				6E693E202B26C4EA00B82F1F /* DateFormatterService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -624,6 +633,7 @@
 				6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */,
 				6E758CF82B216AD4008C3DDC /* LocationSearchDatasource.swift in Sources */,
 				6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */,
+				6E693E1D2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift in Sources */,
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6E758D002B218F32008C3DDC /* Location.swift in Sources */,
 				3756A8D22B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift in Sources */,
@@ -639,6 +649,7 @@
 				6E758CD82B200954008C3DDC /* UIView+Ext.swift in Sources */,
 				6E758CCD2B2001E7008C3DDC /* UIColor+Ext.swift in Sources */,
 				6E758D052B219191008C3DDC /* Network.swift in Sources */,
+				6E693E212B26C4EA00B82F1F /* DateFormatterService.swift in Sources */,
 				6E758D022B219121008C3DDC /* URLSessionService.swift in Sources */,
 				6E758CEC2B2150BA008C3DDC /* DepartureSettingVM.swift in Sources */,
 				3756A8CE2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift in Sources */,
@@ -646,6 +657,7 @@
 				3756A8D02B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift in Sources */,
 				6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */,
 				6E758CBA2B1F0A92008C3DDC /* OnboardingViewController.swift in Sources */,
+				6E693E1F2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift in Sources */,
 				6E758CFA2B2179F1008C3DDC /* LocationSearchRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

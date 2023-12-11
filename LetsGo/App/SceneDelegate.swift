@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let locationSearchRepository = LocationSearchRepository(locationSearchdatasource: locationSearchDatasource)
         let locationUseCase = LocationUseCase(locationRepository: locationSearchRepository)
         
-        let viewModel = DestinationSettingVM(locationUseCase: locationUseCase)
-        window?.rootViewController = DestinationSettingVC(viewModel: viewModel)
+        let viewModel = ArrivalTimeSettingVM()
+        window?.rootViewController = ArrivalTimeSettingVC(viewModel: viewModel)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
