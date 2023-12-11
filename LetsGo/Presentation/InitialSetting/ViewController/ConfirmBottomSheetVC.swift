@@ -67,7 +67,6 @@ class ConfirmBottomSheetVC: UIViewController {
     }
     
     private func bindViewModel() {
-//        #warning("바텀시티 바인딩 >>>> ")
         let cancelButtonTapObservable = bottomSheetView.cancelButton.rx.tap.asObservable()
         let confirmButtonTapObservable = bottomSheetView.confirmButton.rx.tap.asObservable()
          
@@ -88,6 +87,5 @@ class ConfirmBottomSheetVC: UIViewController {
     func updateUI(with location: Location, and buttonType: SearchType) {
         viewModel.selectedLocation.onNext(location)
         bottomSheetView.updateUI(with: location, and: buttonType)
-        viewModel.selectedLocation.onNext(location)
     }
 }
