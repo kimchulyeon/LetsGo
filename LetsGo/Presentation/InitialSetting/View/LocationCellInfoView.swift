@@ -67,4 +67,9 @@ class LocationCellInfoView: UIView {
             infoLabel.textColor = ThemeColor.weakText
         }
     }
+    
+    func clearForReuse() {
+        infoLabel.text = nil
+        badgeView.clearForReuse()
+    }
 }

@@ -12,7 +12,7 @@ import SnapKit
 
 class DayOfWeekSettingVC: UIViewController {
     //MARK: - properties
-    private let viewModel = DayOfWeekSettingVM()
+    private let viewModel: DayOfWeekSettingVM
     private let bag = DisposeBag()
     
     private let titleLabel: UILabel = {
@@ -43,6 +43,14 @@ class DayOfWeekSettingVC: UIViewController {
     private let nextButton = SelectButton(text: "다음", bgColor: ThemeColor.secondary)
 
     //MARK: - Lifecycle
+    init(viewModel: DayOfWeekSettingVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -101,7 +109,6 @@ class DayOfWeekSettingVC: UIViewController {
         output.selectedDays
             .subscribe { [unowned self] selectedDaysListRelay in
                 guard let days = selectedDaysListRelay.element else { return }
-                print("\n📂파일 : \(#file)\n📏줄 : \(#line)\n🚀함수 : \(#function)\n✅ 선택된 요일 : \(days) \n")
                 buttons.forEach { $0.backgroundColor = ThemeColor.primary }
                 
                 if days.isEmpty {
@@ -119,11 +126,6 @@ class DayOfWeekSettingVC: UIViewController {
             }
             .disposed(by: bag)
         
-        output.moveToNext
-            .subscribe { _ in
-                print("다음으로 이동 >>>>")
-            }
-            .disposed(by: bag)
     }
 }
 

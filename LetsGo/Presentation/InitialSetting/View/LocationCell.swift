@@ -35,6 +35,15 @@ class LocationCell: UITableViewCell {
         
         setupUI()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        placeNameLabel.text = nil
+        topInfoView.clearForReuse()
+        bottomInfoView.clearForReuse()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

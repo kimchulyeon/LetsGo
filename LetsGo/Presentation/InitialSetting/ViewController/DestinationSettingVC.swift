@@ -173,7 +173,6 @@ class DestinationSettingVC: UIViewController {
            .subscribe(onNext: { [unowned self] indexPath in
                searchTextField.textField.endEditing(true)
                let selectedLocation = output.searchedLocationLists.value[indexPath.row]
-               print("Selected location: \(selectedLocation)")
                locationTableView.deselectRow(at: indexPath, animated: true)
                
                presentBottomSheet(with: output, and: selectedLocation)
@@ -190,11 +189,13 @@ class DestinationSettingVC: UIViewController {
     }
     
     private func presentBottomSheet(with output: DestinationSettingVM.Output, and selectedLocation: Location) {
-        let viewModel = ConfirmBottomSheetVM()
-        let bottomSheetVC = ConfirmBottomSheetVC(viewModel: viewModel)
-        bottomSheetVC.updateUI(with: selectedLocation, and: output.buttonType.value)
+        let bottomSheetViewModel = ConfirmBottomSheetVM()
+        let bottomSheetVC = ConfirmBottomSheetVC(viewModel: bottomSheetViewModel)
         bottomSheetVC.modalPresentationStyle = .overCurrentContext
         bottomSheetVC.modalTransitionStyle = .crossDissolve
+        
+        bottomSheetVC.updateSelectedLocation(selectedLocation)
+        bottomSheetVC.updateUI(with: selectedLocation, and: output.buttonType.value)
         present(bottomSheetVC, animated: true)
     }
 }

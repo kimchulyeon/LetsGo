@@ -76,8 +76,16 @@ class ConfirmBottomSheetVC: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.dismissBottomSheet
-            .subscribe { [weak self] _ in
-                guard let weakSelf = self else { return }
+            .subscribe { [weak self] location in
+                guard let weakSelf = self, let location = location.element else { return }
+                
+                if let location = location,
+                   let presentingVC = weakSelf.presentingViewController as? InitialSettingsPageVC {
+                    
+                    print("선택한 출발지 / 도착지 : \(location)")
+                    presentingVC.goToNextPage()
+                }
+                
                 weakSelf.dismiss(animated: true)
             }
             .disposed(by: bag)
@@ -85,7 +93,10 @@ class ConfirmBottomSheetVC: UIViewController {
     }
     
     func updateUI(with location: Location, and buttonType: SearchType) {
-        viewModel.selectedLocation.onNext(location)
         bottomSheetView.updateUI(with: location, and: buttonType)
+    }
+    
+    func updateSelectedLocation(_ location: Location) {
+        viewModel.selectedLocation.onNext(location)
     }
 }

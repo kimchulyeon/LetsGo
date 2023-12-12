@@ -99,19 +99,19 @@ class DepartureSettingVC: UIViewController {
     }
 
     private func bindViewModel() {
-        let searchTypeButtonObservable = setupTypeButtonEvent()
+        let searchTypeButtonObservable: Observable<SearchType> = setupTypeButtonTapObservable()
 
         let input = DepartureSettingVM.Input(inputTextField: searchTextField.textField.rx.text.orEmpty.asObservable(),
                                              searchTypeButtonTapped: searchTypeButtonObservable)
         let output = viewModel.transform(input: input)
 
-        hiddenTableViewDependsOnListCount(output: output)
+        hideTableViewDependsOnListCount(output: output)
         setupSearchResultTableView(output: output)
         updateTypeButton(output: output)
         setupTableViewSelectEvent(output: output)
     }
     
-    private func setupTypeButtonEvent() -> Observable<SearchType> {
+    private func setupTypeButtonTapObservable() -> Observable<SearchType> {
         return Observable<SearchType>.create { [unowned self] emitter in
             let keywordDisposable = searchTypeButtonView.keywordButton.rx.tap
                 .subscribe(onNext: {
@@ -127,7 +127,7 @@ class DepartureSettingVC: UIViewController {
         }
     }
     
-    private func hiddenTableViewDependsOnListCount(output: DepartureSettingVM.Output) {
+    private func hideTableViewDependsOnListCount(output: DepartureSettingVM.Output) {
         output.searchedLocationLists
             .observe(on: MainScheduler.instance)
             .subscribe { [unowned self] list in
@@ -173,7 +173,6 @@ class DepartureSettingVC: UIViewController {
            .subscribe(onNext: { [unowned self] indexPath in
                searchTextField.textField.endEditing(true)
                let selectedLocation = output.searchedLocationLists.value[indexPath.row]
-               print("Selected location: \(selectedLocation)")
                locationTableView.deselectRow(at: indexPath, animated: true)
                
                presentBottomSheet(with: output, and: selectedLocation)
@@ -190,11 +189,13 @@ class DepartureSettingVC: UIViewController {
     }
     
     private func presentBottomSheet(with output: DepartureSettingVM.Output, and selectedLocation: Location) {
-        let viewModel = ConfirmBottomSheetVM()
-        let bottomSheetVC = ConfirmBottomSheetVC(viewModel: viewModel)
-        bottomSheetVC.updateUI(with: selectedLocation, and: output.buttonType.value)
+        let bottomSheetViewModel = ConfirmBottomSheetVM()
+        let bottomSheetVC = ConfirmBottomSheetVC(viewModel: bottomSheetViewModel)
         bottomSheetVC.modalPresentationStyle = .overCurrentContext
         bottomSheetVC.modalTransitionStyle = .crossDissolve
+        
+        bottomSheetVC.updateSelectedLocation(selectedLocation)
+        bottomSheetVC.updateUI(with: selectedLocation, and: output.buttonType.value)
         present(bottomSheetVC, animated: true)
     }
 }

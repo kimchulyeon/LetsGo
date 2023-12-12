@@ -13,6 +13,9 @@ class ArrivalTimeSettingVM {
     //MARK: - properties
     private let bag = DisposeBag()
     
+    let selectedTime = BehaviorRelay<String>(value: "")
+    let moveToNext = PublishRelay<String>()
+    
     struct Input {
         let timeSelected: Observable<Date>
         let nextButtonTapped: Observable<Void>
@@ -29,18 +32,22 @@ class ArrivalTimeSettingVM {
         let output = Output()
         
         input.timeSelected
-            .map({ date in
-                DateFormatterService.formatDateToTime(date: date)
+            .map({ [unowned self] date in
+                let dateStr = DateFormatterService.formatDateToTime(date: date)
+                selectedTime.accept(dateStr)
+                
+                return dateStr
             })
-            .subscribe(onNext: { dateString in
-                print(" 선택한 시간 : \(dateString) ")
-            })
+            .subscribe()
             .disposed(by: bag)
         
         input.nextButtonTapped
-            .subscribe { _ in
-                output.moveToNext.accept(())
+            .map { [unowned self] _ in
+                return selectedTime.value
             }
+            .subscribe(onNext: { [unowned self] timeStr in
+                moveToNext.accept(timeStr)
+            })
             .disposed(by: bag)
         
         return output

@@ -11,10 +11,13 @@ import RxRelay
 
 class DayOfWeekSettingVM {
     //MARK: - properties
+    typealias Index = Int
+    
     private let bag = DisposeBag()
     
+    let moveToNext = PublishRelay<[(DayOfWeek, Index)]>()
+    
     struct Input {
-        typealias Index = Int
         let dayButtonTapped: Observable<(DayOfWeek, Index)>
         let nextButtonTapped: Observable<Void>
     }
@@ -22,7 +25,6 @@ class DayOfWeekSettingVM {
     struct Output {
         typealias Index = Int
         let selectedDays = BehaviorRelay<[(DayOfWeek, Index)]>(value: [])
-        let moveToNext = PublishRelay<Void>()
     }
     
     //MARK: - method
@@ -30,22 +32,22 @@ class DayOfWeekSettingVM {
         let output = Output()
         
         input.dayButtonTapped
-            .subscribe { dayAndIndex in
+            .subscribe { daysAndIndex in
                 var selectedDaysList = output.selectedDays.value
                 
-                if selectedDaysList.contains(where: { $0 == dayAndIndex }) {
-                    selectedDaysList.removeAll(where: { $0 == dayAndIndex })
+                if selectedDaysList.contains(where: { $0 == daysAndIndex }) {
+                    selectedDaysList.removeAll(where: { $0 == daysAndIndex })
                 }
                 else {
-                    selectedDaysList.append(dayAndIndex)
+                    selectedDaysList.append(daysAndIndex)
                 }
                 output.selectedDays.accept(selectedDaysList)
             }
             .disposed(by: bag)
         
         input.nextButtonTapped
-            .subscribe { _ in
-                output.moveToNext.accept(())
+            .subscribe { [unowned self] _ in
+                moveToNext.accept(output.selectedDays.value)
             }
             .disposed(by: bag)
         

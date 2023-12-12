@@ -52,4 +52,9 @@ class LocationCellBadgeView: UIView {
             backgroundColor = ThemeColor.darkGray
         }
     }
+    
+    func clearForReuse() {
+        badgeLabel.text = nil
+        backgroundColor = .clear
+    }
 }

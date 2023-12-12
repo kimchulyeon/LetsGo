@@ -18,12 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        let locationSearchDatasource = LocationSearchDatasource()
-        let locationSearchRepository = LocationSearchRepository(locationSearchdatasource: locationSearchDatasource)
-        let locationUseCase = LocationUseCase(locationRepository: locationSearchRepository)
+//        let viewModel = InitialSettingsPageVM()
+//        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
         
-        let viewModel = ArrivalTimeSettingVM()
-        window?.rootViewController = ArrivalTimeSettingVC(viewModel: viewModel)
+        window?.rootViewController = BaseTabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

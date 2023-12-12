@@ -13,7 +13,7 @@ class ConfirmBottomSheetVM {
     //MARK: - properties
     private let bag = DisposeBag()
     
-    let selectedLocation = BehaviorSubject<Location?>(value: nil) 
+    let selectedLocation = BehaviorSubject<Location?>(value: nil)
     
     struct Input {
         let cancelButtonTapped: Observable<Void>
@@ -21,7 +21,7 @@ class ConfirmBottomSheetVM {
     }
     
     struct Output {
-        let dismissBottomSheet = PublishRelay<Void>()
+        let dismissBottomSheet = BehaviorRelay<Location?>(value: nil)
     }
     
     //MARK: - lifecycle
@@ -32,15 +32,16 @@ class ConfirmBottomSheetVM {
         
         input.cancelButtonTapped
             .subscribe { _ in
-                output.dismissBottomSheet.accept(())
+                output.dismissBottomSheet.accept(nil)
             }
             .disposed(by: bag)
         
         input.confirmButtonTapped
-            .withLatestFrom(selectedLocation)
+            .flatMap({ [unowned self] _ in
+                selectedLocation.asObserver()
+            })
             .subscribe { location in
-                print("선택한 위치 : \(location)")
-                output.dismissBottomSheet.accept(())
+                output.dismissBottomSheet.accept(location)
             }
             .disposed(by: bag)
 
