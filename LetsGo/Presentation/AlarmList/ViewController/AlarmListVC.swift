@@ -20,6 +20,9 @@ class AlarmListVC: UIViewController {
     private let alarmTableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
+        tv.separatorStyle = .none
+        tv.showsVerticalScrollIndicator = false
+        tv.register(AlarmTableCell.self, forCellReuseIdentifier: AlarmTableCell.identifier)
         return tv
     }()
     
@@ -57,8 +60,8 @@ class AlarmListVC: UIViewController {
     
     private func testTableView() {
         test.bind(to: alarmTableView.rx.items) { tableView, row, data in
-            let cell = UITableViewCell()
-            cell.textLabel?.text = data.description
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTableCell.identifier) as? AlarmTableCell else { return UITableViewCell() }
+            cell.configure()
             return cell
         }
         .disposed(by: bag)

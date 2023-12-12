@@ -75,13 +75,11 @@ class LocationCell: UITableViewCell {
     }
     
     private func setupKeywordInfoView(with location: Location) {
-//        placeNameLabel.isHidden = false
         placeNameLabel.text = location.placeName
         bottomInfoView.updateUI(with: BadgeType.phoneNumber, and: location)
     }
     
     private func setupAddressInfoView(with location: Location) {
-//        placeNameLabel.isHidden = true
         bottomInfoView.updateUI(with: BadgeType.postNumber, and: location)
     }
 }

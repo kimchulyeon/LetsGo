@@ -20,8 +20,11 @@ class BaseTabBarController: UITabBarController {
     
     //MARK: - method
     private func setupUI() {
-        tabBar.backgroundColor = ThemeColor.moreLightGray
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = ThemeColor.moreLightGray
         tabBar.tintColor = ThemeColor.blueGray
+        tabBar.scrollEdgeAppearance = appearance
+        tabBar.standardAppearance = appearance
     }
     
     private func setupTabBarItems() {

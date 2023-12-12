@@ -17,12 +17,12 @@ enum Transportation: Int, CaseIterable {
 }
 
 /// 요일
-enum DayOfWeek: Int, CaseIterable {
-    case mon
-    case tue
-    case wed
-    case thu
-    case fri
-    case sat
-    case sun
+enum DayOfWeek: String, CaseIterable {
+    case mon = "월"
+    case tue = "화"
+    case wed = "수"
+    case thu = "목"
+    case fri = "금"
+    case sat = "토"
+    case sun = "일"
 }
