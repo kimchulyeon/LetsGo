@@ -8,7 +8,8 @@
 import UIKit
 
 struct ThemeColor {
-    static let background = UIColor(hexCode: "f5f1f0")
+//    static let background = UIColor(hexCode: "f5f1f0")
+    static let background = UIColor(hexCode: "F8F9FA")
     static let primary = UIColor(hexCode: "007BFF")
     static let strongPrimary = UIColor(hexCode: "0056B3")
     static let weakPrimary = UIColor(hexCode: "7bb2ed")

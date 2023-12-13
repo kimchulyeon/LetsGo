@@ -37,7 +37,7 @@ class SearchTextField: UIView {
     
     //MARK: - method
     private func setupUI() {
-        backgroundColor = ThemeColor.moreLightGray
+        backgroundColor = .white
         addCornerRadius(radius: 8)
 
         addSubview(leftImageView)

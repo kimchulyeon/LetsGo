@@ -14,6 +14,10 @@ class AlarmTableCell: UITableViewCell {
     private let containerView: UIView = {
         let v = UIView()
         v.addCornerRadius(radius: 12)
+        v.layer.shadowColor = ThemeColor.darkGray.cgColor
+        v.layer.shadowOffset = CGSize(width: 0, height: 2)
+        v.layer.shadowOpacity = 0.4
+        v.layer.masksToBounds = false
         v.backgroundColor = .white
         return v
     }()
@@ -39,6 +43,7 @@ class AlarmTableCell: UITableViewCell {
     }()
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
+        sw.onTintColor = ThemeColor.primary
         return sw
     }()
     private let dividerLineView: UIView = {
@@ -80,8 +85,8 @@ class AlarmTableCell: UITableViewCell {
         containerView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
+            make.top.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().offset(-8)
         }
         
         containerView.addSubview(weekButtonHStackView)
