@@ -32,14 +32,16 @@ class InitialSettingsPageVM {
         let dayOfWeekVM = DayOfWeekSettingVM()
         let transportationVM = TransportationSettingVM()
         let arrivalTimeVM = ArrivalTimeSettingVM()
+        let alarmNameVM = AlarmNameSettingVM()
             
         let page1 = DepartureSettingVC(viewModel: departureVM)
         let page2 = DestinationSettingVC(viewModel: destinationVM)
         let page3 = DayOfWeekSettingVC(viewModel: dayOfWeekVM)
         let page4 = TransportationSettingVC(viewModel: transportationVM)
         let page5 = ArrivalTimeSettingVC(viewModel: arrivalTimeVM)
+        let page6 = AlarmNameSettingVC(viewModel: alarmNameVM)
         
-        pages.accept([page1, page2, page3, page4, page5])
+        pages.accept([page1, page2, page3, page4, page5, page6])
         
         dayOfWeekVM.moveToNext
             .subscribe(onNext: { [unowned self] selectedDays in
@@ -57,8 +59,15 @@ class InitialSettingsPageVM {
             .disposed(by: bag)
         
         arrivalTimeVM.moveToNext
-            .subscribe { date in
+            .subscribe { [unowned self] date in
                 print("선택한 시간 : \(date)")
+                goToNextPage()
+            }
+            .disposed(by: bag)
+        
+        alarmNameVM.moveToNext
+            .subscribe { name in
+                print("알람 이름 : \(name)")
                 
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                     let sceneDelegate = windowScene.delegate as? SceneDelegate {

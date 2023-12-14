@@ -40,7 +40,7 @@ class DayOfWeekSettingVC: UIViewController {
         sv.distribution = .fillEqually
         return sv
     }()
-    private let nextButton = SelectButton(text: "다음", bgColor: ThemeColor.secondary)
+    private let nextButton = SelectButton(text: "다음")
 
     //MARK: - Lifecycle
     init(viewModel: DayOfWeekSettingVM) {
@@ -109,18 +109,18 @@ class DayOfWeekSettingVC: UIViewController {
         output.selectedDays
             .subscribe { [unowned self] selectedDaysListRelay in
                 guard let days = selectedDaysListRelay.element else { return }
-                buttons.forEach { $0.backgroundColor = ThemeColor.primary }
+                buttons.forEach { $0.backgroundColor = ThemeColor.lightGray }
                 
                 if days.isEmpty {
                     nextButton.isEnabled = false
-                    nextButton.backgroundColor = ThemeColor.weakSecondary
+                    nextButton.backgroundColor = ThemeColor.weakBlueGray
                 }
                 else {
                     nextButton.isEnabled = true
-                    nextButton.backgroundColor = ThemeColor.secondary
+                    nextButton.backgroundColor = ThemeColor.primary
                     
                     days.forEach { (day, index) in
-                        buttons[index].backgroundColor = ThemeColor.strongPrimary
+                        buttons[index].backgroundColor = ThemeColor.primary
                     }
                 }
             }

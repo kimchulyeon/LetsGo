@@ -26,7 +26,7 @@ class DestinationSettingVC: UIViewController {
         return lb
     }()
     private let searchTypeButtonView = SearchTypeButtonView()
-    private let searchTextField = SearchTextField()
+    private let searchTextField = SettingTextField()
     private let locationTableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
@@ -80,7 +80,7 @@ class DestinationSettingVC: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
             make.top.equalTo(descLabel.snp.bottom).offset(16)
-            make.height.equalTo(35)
+            make.height.equalTo(45)
         }
 
         view.addSubview(searchTextField)
@@ -158,9 +158,11 @@ class DestinationSettingVC: UIViewController {
                 
                 switch type {
                 case .keyword:
+                    searchTextField.textField.placeholder = "키워드를 입력해주세요"
                     searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.primary
                     searchTypeButtonView.keywordButton.setTitleColor(.white, for: .normal)
                 case .address:
+                    searchTextField.textField.placeholder = "주소를 입력해주세요"
                     searchTypeButtonView.addressButton.backgroundColor = ThemeColor.primary
                     searchTypeButtonView.addressButton.setTitleColor(.white, for: .normal)
                 }
@@ -183,9 +185,9 @@ class DestinationSettingVC: UIViewController {
     private func resetSearch() {
         searchTextField.textField.text = nil
         searchTypeButtonView.keywordButton.backgroundColor = .clear
-        searchTypeButtonView.keywordButton.setTitleColor(ThemeColor.secondary, for: .normal)
+        searchTypeButtonView.keywordButton.setTitleColor(ThemeColor.moreWeakText, for: .normal)
         searchTypeButtonView.addressButton.backgroundColor = .clear
-        searchTypeButtonView.addressButton.setTitleColor(ThemeColor.secondary, for: .normal)
+        searchTypeButtonView.addressButton.setTitleColor(ThemeColor.moreWeakText, for: .normal)
     }
     
     private func presentBottomSheet(with output: DestinationSettingVM.Output, and selectedLocation: Location) {

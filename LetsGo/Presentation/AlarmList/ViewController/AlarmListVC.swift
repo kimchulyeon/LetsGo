@@ -15,8 +15,6 @@ class AlarmListVC: UIViewController {
     private let bag = DisposeBag()
     private let viewModel: AlarmListVM
     
-    let test = Observable.just([1, 2, 3, 4, 5])
-    
     private let alarmTableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
@@ -24,6 +22,13 @@ class AlarmListVC: UIViewController {
         tv.showsVerticalScrollIndicator = false
         tv.register(AlarmTableCell.self, forCellReuseIdentifier: AlarmTableCell.identifier)
         return tv
+    }()
+    private let addAlarmButton: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: "plus"), for: .normal)
+        btn.tintColor = .white
+        btn.backgroundColor = ThemeColor.primary
+        return btn
     }()
     
     //MARK: - Lifecycle
@@ -39,7 +44,7 @@ class AlarmListVC: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        testTableView()
+        bindViewModel()
     }
     
     //MARK: - method
@@ -56,14 +61,37 @@ class AlarmListVC: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
+        
+        view.addSubview(addAlarmButton)
+        addAlarmButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-13)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-13)
+            make.height.width.equalTo(50)
+        }
+        addAlarmButton.addCornerRadius(radius: 25)
     }
     
-    private func testTableView() {
-        test.bind(to: alarmTableView.rx.items) { tableView, row, data in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTableCell.identifier) as? AlarmTableCell else { return UITableViewCell() }
-            cell.configure()
-            return cell
-        }
-        .disposed(by: bag)
+    private func bindViewModel() {
+        let input = AlarmListVM.Input(addButtonTapped: addAlarmButton.rx.tap.asObservable(),
+                                      alarmTapped: alarmTableView.rx.modelSelected(Alarm.self).asDriver())
+        
+        let output = viewModel.transform(input: input)
+        
+        output.alarmList
+            .bind(to: alarmTableView.rx.items) { tableView, row, data in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTableCell.identifier) as? AlarmTableCell else { return UITableViewCell() }
+                cell.configure(with: data)
+                return cell
+            }
+            .disposed(by: bag)
+        
+        output.addButtonTapped
+            .withUnretained(self)
+            .subscribe { (self, _) in
+                let viewModel = ComposeAlarmVM()
+                let composeAlarmVC = ComposeAlarmVC(viewModel: viewModel)
+                self.navigationController?.present(composeAlarmVC, animated: true)
+            }
+            .disposed(by: bag)
     }
 }

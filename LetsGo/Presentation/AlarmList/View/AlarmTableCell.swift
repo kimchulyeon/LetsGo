@@ -11,6 +11,7 @@ import SnapKit
 class AlarmTableCell: UITableViewCell {
     //MARK: - properties
     static let identifier = "alarmTableCell"
+    
     private let containerView: UIView = {
         let v = UIView()
         v.addCornerRadius(radius: 12)
@@ -37,7 +38,7 @@ class AlarmTableCell: UITableViewCell {
     }()
     private let timeLabel : UILabel = {
         let lb = UILabel()
-        lb.font = ThemeFont.bold(size: 36)
+        lb.font = ThemeFont.demiBold(size: 30)
         lb.textColor = ThemeColor.text
         return lb
     }()
@@ -54,7 +55,7 @@ class AlarmTableCell: UITableViewCell {
     private let showRouteButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("경로 보기", for: .normal)
-        btn.setTitleColor(ThemeColor.weakPrimary, for: .normal)
+        btn.setTitleColor(ThemeColor.darkGray, for: .normal)
         btn.titleLabel?.font = ThemeFont.demiBold(size: 12)
        return btn
    }()
@@ -92,7 +93,7 @@ class AlarmTableCell: UITableViewCell {
         containerView.addSubview(weekButtonHStackView)
         DayOfWeek.allCases.forEach { weekCase in
             let week = weekCase.rawValue
-            let button = WeekButtonView(title: week)
+            let button = MarkingWeekView(title: week)
             weekButtonHStackView.addArrangedSubview(button)
         }
         weekButtonHStackView.snp.makeConstraints { make in
@@ -139,8 +140,20 @@ class AlarmTableCell: UITableViewCell {
         
     }
     
-    func configure() {
+    func configure(with data: Alarm) {
         selectionStyle = .none
-        timeLabel.text = "11:30"
+        
+        timeLabel.text = "\(data.arriveHour) : \(data.arriveMinute)"
+        alarmToggle.isOn = data.isOn
+        
+        data.days.forEach { weekCase in
+            weekButtonHStackView.arrangedSubviews.forEach { view in
+                guard let v = view as? MarkingWeekView else { return }
+                
+                if v.containerButtonView.titleLabel?.text == weekCase.rawValue {
+                    v.containerButtonView.backgroundColor = ThemeColor.weakPrimary
+                }
+            }
+        }
     }
 }

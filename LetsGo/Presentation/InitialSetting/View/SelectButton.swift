@@ -21,7 +21,7 @@ class SelectButton: UIButton {
     }()
 
     //MARK: - lifecycle
-    init(text: String, emoji: String? = nil, bgColor: UIColor = ThemeColor.primary) {
+    init(text: String, emoji: String? = nil, bgColor: UIColor = ThemeColor.lightGray) {
         super.init(frame: .zero)
         setupUI(hasEmoji: emoji != nil, bgColor: bgColor)
         setupButton(with: text, emoji: emoji)

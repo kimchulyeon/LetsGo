@@ -34,9 +34,11 @@ class BottomSheetView: UIView {
     let cancelButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("아니요", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = ThemeColor.blueGray
+        btn.setTitleColor(ThemeColor.weakText, for: .normal)
+        btn.backgroundColor = .clear
         btn.addCornerRadius(radius: 8)
+        btn.layer.borderColor = ThemeColor.primary.cgColor
+        btn.layer.borderWidth = 1
         return btn
     }()
     let confirmButton: UIButton = {

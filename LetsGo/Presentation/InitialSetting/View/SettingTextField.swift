@@ -8,28 +8,27 @@
 import UIKit
 import RxSwift
 
-class SearchTextField: UIView {
+class SettingTextField: UIView {
     
     //MARK: - properties
     private let leftImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(systemName: "magnifyingglass")
-        iv.tintColor = ThemeColor.secondary
+        iv.tintColor = ThemeColor.moreWeakText
         return iv
     }()
     let textField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
-        tf.placeholder = "주소를 입력해주세요"
-        tf.font = ThemeFont.regular(size: 14)
         return tf
     }()
     
     //MARK: - lifecycle
-    override init(frame: CGRect) {
+    init(leftImage: UIImage = UIImage(systemName: "magnifyingglass")!, placeholder: String = "주소를 입력해주세요", fontSize: CGFloat = 14) {
         super.init(frame: .zero)
-        
         setupUI()
+        leftImageView.image = leftImage
+        textField.placeholder = placeholder
+        textField.font = ThemeFont.regular(size: fontSize)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,7 +36,7 @@ class SearchTextField: UIView {
     
     //MARK: - method
     private func setupUI() {
-        backgroundColor = .white
+        backgroundColor = ThemeColor.veryLightGray
         addCornerRadius(radius: 8)
 
         addSubview(leftImageView)

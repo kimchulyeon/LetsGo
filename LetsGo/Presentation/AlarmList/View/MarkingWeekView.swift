@@ -7,9 +7,9 @@
 
 import UIKit
 
-class WeekButtonView: UIView {
+class MarkingWeekView: UIView {
     //MARK: - properties
-    private let containerButtonView: UIButton = {
+    let containerButtonView: UIButton = {
         let v = UIButton()
         v.addCornerRadius(radius: 12)
         v.backgroundColor = .systemGray5

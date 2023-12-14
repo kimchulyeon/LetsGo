@@ -36,7 +36,7 @@ class TransportationSettingVC: UIViewController {
         sv.distribution = .fillEqually
         return sv
     }()
-    private let nextButton = SelectButton(text: "다음", bgColor: ThemeColor.secondary)
+    private let nextButton = SelectButton(text: "다음")
 
     //MARK: - Lifecycle
     init(viewModel: TransportationSettingVM) {
@@ -106,13 +106,13 @@ class TransportationSettingVC: UIViewController {
             .subscribe(onNext: { [unowned self] (transportation, index) in
                 if transportation == .none {
                     nextButton.isEnabled = false
-                    nextButton.backgroundColor = ThemeColor.weakSecondary
+                    nextButton.backgroundColor = ThemeColor.weakBlueGray
                 }
                 else {
                     nextButton.isEnabled = true
-                    nextButton.backgroundColor = ThemeColor.secondary
-                    buttons.forEach{ $0.backgroundColor = ThemeColor.primary }
-                    buttons[index].backgroundColor = ThemeColor.strongPrimary
+                    nextButton.backgroundColor = ThemeColor.primary
+                    buttons.forEach{ $0.backgroundColor = ThemeColor.weakBlueGray }
+                    buttons[index].backgroundColor = ThemeColor.primary
                 }
                 
             })

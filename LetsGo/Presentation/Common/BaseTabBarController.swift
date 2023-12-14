@@ -21,8 +21,8 @@ class BaseTabBarController: UITabBarController {
     //MARK: - method
     private func setupUI() {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = ThemeColor.moreLightGray
-        tabBar.tintColor = ThemeColor.blueGray
+        appearance.backgroundColor = ThemeColor.background
+        tabBar.tintColor = .black
         tabBar.scrollEdgeAppearance = appearance
         tabBar.standardAppearance = appearance
     }
