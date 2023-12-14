@@ -17,10 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         
-        let viewModel = InitialSettingsPageVM()
-        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
+//        let viewModel = InitialSettingsPageVM()
+//        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
         
-//        window?.rootViewController = BaseTabBarController()
+        window?.rootViewController = BaseTabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

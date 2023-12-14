@@ -42,6 +42,12 @@ class AlarmTableCell: UITableViewCell {
         lb.textColor = ThemeColor.text
         return lb
     }()
+    private let transportationLabel: UILabel = {
+        let lb = UILabel()
+        lb.font = ThemeFont.demiBold(size: 24)
+        lb.textColor = ThemeColor.text
+        return lb
+    }()
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
         sw.onTintColor = ThemeColor.primary
@@ -52,13 +58,20 @@ class AlarmTableCell: UITableViewCell {
         v.backgroundColor = ThemeColor.moreLightGray
         return v
     }()
-    private let showRouteButton: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("경로 보기", for: .normal)
-        btn.setTitleColor(ThemeColor.darkGray, for: .normal)
-        btn.titleLabel?.font = ThemeFont.demiBold(size: 12)
-       return btn
-   }()
+    private let departureLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "TEST"
+        lb.font = ThemeFont.regular(size: 12)
+        lb.textColor = ThemeColor.moreWeakText
+        return lb
+    }()
+    private let destinationLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "TEST"
+        lb.font = ThemeFont.regular(size: 12)
+        lb.textColor = ThemeColor.moreWeakText
+        return lb
+    }()
     
     //MARK: - lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -103,47 +116,72 @@ class AlarmTableCell: UITableViewCell {
         
         containerView.addSubview(deleteButton)
         deleteButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalTo(weekButtonHStackView.snp.top)
+            make.bottom.equalTo(weekButtonHStackView.snp.bottom)
             make.trailing.equalToSuperview().offset(-16)
             make.leading.greaterThanOrEqualTo(weekButtonHStackView.snp.trailing).offset(16)
-            make.height.width.equalTo(14)
+            make.width.equalTo(deleteButton.snp.height)
+        }
+        
+        containerView.addSubview(dividerLineView)
+        dividerLineView.snp.makeConstraints { make in
+            make.top.equalTo(weekButtonHStackView.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(6)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(1)
         }
         
         containerView.addSubview(timeLabel)
         timeLabel.snp.makeConstraints { make in
-            make.top.equalTo(weekButtonHStackView.snp.bottom).offset(16)
+            make.top.equalTo(dividerLineView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(32)
+        }
+        
+        containerView.addSubview(transportationLabel)
+        transportationLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(timeLabel.snp.centerY)
+            make.leading.equalTo(timeLabel.snp.trailing).offset(8)
         }
         
         containerView.addSubview(alarmToggle)
         alarmToggle.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-32)
             make.centerY.equalTo(timeLabel.snp.centerY)
-            make.leading.greaterThanOrEqualTo(timeLabel.snp.trailing).offset(16)
+            make.leading.greaterThanOrEqualTo(transportationLabel.snp.trailing).offset(8)
         }
         
-        containerView.addSubview(dividerLineView)
-        dividerLineView.snp.makeConstraints { make in
+        containerView.addSubview(departureLabel)
+        departureLabel.snp.makeConstraints { make in
+            make.leading.equalTo(weekButtonHStackView.snp.leading)
             make.top.equalTo(timeLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(6)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(1)
-        }
-        
-        containerView.addSubview(showRouteButton)
-        showRouteButton.snp.makeConstraints { make in
-            make.top.equalTo(dividerLineView.snp.bottom).offset(8)
-            make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-8)
         }
         
+        containerView.addSubview(destinationLabel)
+        destinationLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(deleteButton.snp.trailing)
+            make.top.equalTo(timeLabel.snp.bottom).offset(8)
+            make.bottom.equalToSuperview().offset(-8)
+        }
     }
     
     func configure(with data: Alarm) {
         selectionStyle = .none
         
-        timeLabel.text = "\(data.arriveHour) : \(data.arriveMinute)"
+        let timeText = "\(data.arriveHour) : \(data.arriveMinute) 까지"
+        let attributedString = NSMutableAttributedString(string: timeText)
+        guard let range = timeText.range(of: "까지") else { return }
+        let nsRange = NSRange(range, in: timeText)
+        attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.weakText], range: nsRange)
+        timeLabel.attributedText = attributedString
+        
+        let transportationText = "\(data.transportationType.emoji) 로"
+        let t_attributedString = NSMutableAttributedString(string: transportationText)
+        guard let range = transportationText.range(of: "로") else { return }
+        let t_nsRange = NSRange(range, in: transportationText)
+        t_attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14)], range: t_nsRange)
+        transportationLabel.attributedText = t_attributedString
+        
         alarmToggle.isOn = data.isOn
         
         data.days.forEach { weekCase in

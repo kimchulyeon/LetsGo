@@ -8,12 +8,27 @@
 import Foundation
 
 /// 교통수단 타입
-enum Transportation: Int, CaseIterable {
-    case walk
-    case pulic
-    case car
-    case bike
-    case none
+enum Transportation: String, CaseIterable {
+    case walk = "도보"
+    case `public` = "대중교통"
+    case car = "자동차"
+    case bike = "자전거"
+    case none = ""
+    
+    var emoji: String {
+        switch self {
+        case .walk:
+            "🦶"
+        case .public:
+            "🚇"
+        case .car:
+            "🚘"
+        case .bike:
+            "🚴"
+        case .none:
+            ""
+        }
+    }
 }
 
 /// 요일
