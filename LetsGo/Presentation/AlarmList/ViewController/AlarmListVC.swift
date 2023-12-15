@@ -27,7 +27,7 @@ class AlarmListVC: UIViewController {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "plus"), for: .normal)
         btn.tintColor = .white
-        btn.backgroundColor = ThemeColor.primary
+        btn.backgroundColor = ThemeColor.blackPrimary
         return btn
     }()
     
@@ -53,9 +53,11 @@ class AlarmListVC: UIViewController {
         
         navigationItem.title = "알람"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: ThemeColor.text, .font: ThemeFont.demiBold(size: 28)]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: ThemeColor.blackPrimary, 
+                                                                        .font: ThemeFont.demiBold(size: 28)]
         
         view.addSubview(alarmTableView)
+        alarmTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
         alarmTableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)

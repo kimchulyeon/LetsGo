@@ -33,7 +33,7 @@ class ArrivalTimeSettingVC: UIViewController {
         pv.locale = Locale(identifier: "ko_KR")
         return pv
     }()
-    private let nextButton = SelectButton(text: "다음", bgColor: ThemeColor.primary)
+    private let nextButton = SelectButton(text: "다음", bgColor: ThemeColor.blackPrimary)
     
     //MARK: - Lifecycle
     init(viewModel: ArrivalTimeSettingVM) {

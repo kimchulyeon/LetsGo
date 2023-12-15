@@ -12,7 +12,7 @@ class MarkingWeekView: UIView {
     let containerButtonView: UIButton = {
         let v = UIButton()
         v.addCornerRadius(radius: 12)
-        v.backgroundColor = .systemGray5
+        v.backgroundColor = ThemeColor.grayPrimary
         v.titleLabel?.font = ThemeFont.demiBold(size: 14)
         v.titleLabel?.textColor = ThemeColor.white
         return v

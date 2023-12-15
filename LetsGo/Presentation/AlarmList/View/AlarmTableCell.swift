@@ -12,14 +12,9 @@ class AlarmTableCell: UITableViewCell {
     //MARK: - properties
     static let identifier = "alarmTableCell"
     
-    private let containerView: UIView = {
-        let v = UIView()
+    private let containerView: GradientView = {
+        let v = GradientView(hex1: "#BDE7F0", hex2: "#BDE7F0", cornerRadius: 12)
         v.addCornerRadius(radius: 12)
-        v.layer.shadowColor = ThemeColor.darkGray.cgColor
-        v.layer.shadowOffset = CGSize(width: 0, height: 2)
-        v.layer.shadowOpacity = 0.4
-        v.layer.masksToBounds = false
-        v.backgroundColor = .white
         return v
     }()
     private let weekButtonHStackView: UIStackView = {
@@ -29,16 +24,22 @@ class AlarmTableCell: UITableViewCell {
         sv.spacing = 8
         return sv
     }()
-    private let deleteButton: UIButton = {
+    private let moreButton: UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(systemName: "trash"), for: .normal)
+        btn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         btn.backgroundColor = .clear
-        btn.tintColor = ThemeColor.weakRed
+        btn.tintColor = ThemeColor.blackPrimary
         return btn
+    }()
+    private let nameLabel: UILabel = {
+        let lb = UILabel()
+        lb.font = ThemeFont.demiBold(size: 13)
+        lb.textColor = ThemeColor.weakText
+        return lb
     }()
     private let timeLabel : UILabel = {
         let lb = UILabel()
-        lb.font = ThemeFont.demiBold(size: 30)
+        lb.font = ThemeFont.bold(size: 30)
         lb.textColor = ThemeColor.text
         return lb
     }()
@@ -50,27 +51,32 @@ class AlarmTableCell: UITableViewCell {
     }()
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
-        sw.onTintColor = ThemeColor.primary
+        sw.onTintColor = ThemeColor.blackPrimary
         return sw
     }()
     private let dividerLineView: UIView = {
         let v = UIView()
-        v.backgroundColor = ThemeColor.moreLightGray
+        v.backgroundColor = ThemeColor.moreWeakText
         return v
     }()
     private let departureLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "TEST"
-        lb.font = ThemeFont.regular(size: 12)
+        lb.font = ThemeFont.demiBold(size: 11)
         lb.textColor = ThemeColor.moreWeakText
         return lb
     }()
     private let destinationLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "TEST"
-        lb.font = ThemeFont.regular(size: 12)
+        lb.font = ThemeFont.demiBold(size: 11)
         lb.textColor = ThemeColor.moreWeakText
+        lb.textAlignment = .right
         return lb
+    }()
+    private lazy var labelHStackView: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [departureLabel, destinationLabel])
+        sv.axis = .horizontal
+        sv.distribution = .fillEqually
+        return sv
     }()
     
     //MARK: - lifecycle
@@ -86,6 +92,11 @@ class AlarmTableCell: UITableViewCell {
         timeLabel.text = nil
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.layer.sublayers?.first?.frame = containerView.bounds
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -99,7 +110,7 @@ class AlarmTableCell: UITableViewCell {
         containerView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.top.equalToSuperview().offset(8)
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview().offset(-8)
         }
         
@@ -114,26 +125,25 @@ class AlarmTableCell: UITableViewCell {
             make.leading.equalToSuperview().offset(14)
         }
         
-        containerView.addSubview(deleteButton)
-        deleteButton.snp.makeConstraints { make in
+        containerView.addSubview(moreButton)
+        moreButton.snp.makeConstraints { make in
             make.top.equalTo(weekButtonHStackView.snp.top)
             make.bottom.equalTo(weekButtonHStackView.snp.bottom)
             make.trailing.equalToSuperview().offset(-16)
             make.leading.greaterThanOrEqualTo(weekButtonHStackView.snp.trailing).offset(16)
-            make.width.equalTo(deleteButton.snp.height)
+            make.width.equalTo(moreButton.snp.height)
         }
         
-        containerView.addSubview(dividerLineView)
-        dividerLineView.snp.makeConstraints { make in
-            make.top.equalTo(weekButtonHStackView.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(6)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(1)
+        containerView.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(weekButtonHStackView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(32)
+            make.trailing.equalToSuperview().offset(-32)
         }
         
         containerView.addSubview(timeLabel)
         timeLabel.snp.makeConstraints { make in
-            make.top.equalTo(dividerLineView.snp.bottom).offset(16)
+            make.top.equalTo(nameLabel.snp.bottom).offset(4)
             make.leading.equalToSuperview().offset(32)
         }
         
@@ -150,19 +160,22 @@ class AlarmTableCell: UITableViewCell {
             make.leading.greaterThanOrEqualTo(transportationLabel.snp.trailing).offset(8)
         }
         
-        containerView.addSubview(departureLabel)
-        departureLabel.snp.makeConstraints { make in
-            make.leading.equalTo(weekButtonHStackView.snp.leading)
-            make.top.equalTo(timeLabel.snp.bottom).offset(8)
+        containerView.addSubview(dividerLineView)
+        dividerLineView.snp.makeConstraints { make in
+            make.top.equalTo(alarmToggle.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(32)
+            make.trailing.equalToSuperview().offset(-32)
+            make.height.equalTo(1)
+        }
+        
+        containerView.addSubview(labelHStackView)
+        labelHStackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(32)
+            make.trailing.equalToSuperview().offset(-32)
+            make.top.equalTo(dividerLineView.snp.bottom).offset(8)
             make.bottom.equalToSuperview().offset(-8)
         }
         
-        containerView.addSubview(destinationLabel)
-        destinationLabel.snp.makeConstraints { make in
-            make.trailing.equalTo(deleteButton.snp.trailing)
-            make.top.equalTo(timeLabel.snp.bottom).offset(8)
-            make.bottom.equalToSuperview().offset(-8)
-        }
     }
     
     func configure(with data: Alarm) {
@@ -175,21 +188,26 @@ class AlarmTableCell: UITableViewCell {
         attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.weakText], range: nsRange)
         timeLabel.attributedText = attributedString
         
+        nameLabel.text = data.alarmTitme
+        
         let transportationText = "\(data.transportationType.emoji) 로"
         let t_attributedString = NSMutableAttributedString(string: transportationText)
         guard let range = transportationText.range(of: "로") else { return }
         let t_nsRange = NSRange(range, in: transportationText)
-        t_attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14)], range: t_nsRange)
+        t_attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.weakText], range: t_nsRange)
         transportationLabel.attributedText = t_attributedString
         
         alarmToggle.isOn = data.isOn
+        
+        departureLabel.text = data.departurePlaceName
+        destinationLabel.text = data.destinationPlaceName
         
         data.days.forEach { weekCase in
             weekButtonHStackView.arrangedSubviews.forEach { view in
                 guard let v = view as? MarkingWeekView else { return }
                 
                 if v.containerButtonView.titleLabel?.text == weekCase.rawValue {
-                    v.containerButtonView.backgroundColor = ThemeColor.weakPrimary
+                    v.containerButtonView.backgroundColor = ThemeColor.blackPrimary
                 }
             }
         }

@@ -106,13 +106,13 @@ class TransportationSettingVC: UIViewController {
             .subscribe(onNext: { [unowned self] (transportation, index) in
                 if transportation == .none {
                     nextButton.isEnabled = false
-                    nextButton.backgroundColor = ThemeColor.weakBlueGray
+                    nextButton.backgroundColor = ThemeColor.grayPrimary
                 }
                 else {
                     nextButton.isEnabled = true
-                    nextButton.backgroundColor = ThemeColor.primary
-                    buttons.forEach{ $0.backgroundColor = ThemeColor.weakBlueGray }
-                    buttons[index].backgroundColor = ThemeColor.primary
+                    nextButton.backgroundColor = ThemeColor.blackPrimary
+                    buttons.forEach{ $0.backgroundColor = ThemeColor.lightGray }
+                    buttons[index].backgroundColor = ThemeColor.blackPrimary
                 }
                 
             })

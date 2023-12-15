@@ -90,10 +90,10 @@ class AlarmNameSettingVC: UIViewController {
             .subscribe { (self, alarmName) in
                 if alarmName.isEmpty {
                     self.nextButton.isEnabled = false
-                    self.nextButton.backgroundColor = ThemeColor.weakBlueGray
+                    self.nextButton.backgroundColor = ThemeColor.grayPrimary
                 } else {
                     self.nextButton.isEnabled = true
-                    self.nextButton.backgroundColor = ThemeColor.primary
+                    self.nextButton.backgroundColor = ThemeColor.blackPrimary
                 }
             }
             .disposed(by: bag)

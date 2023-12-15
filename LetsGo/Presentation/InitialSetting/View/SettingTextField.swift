@@ -19,6 +19,7 @@ class SettingTextField: UIView {
     let textField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
+        tf.textColor = ThemeColor.blackPrimary
         return tf
     }()
     
@@ -36,13 +37,12 @@ class SettingTextField: UIView {
     
     //MARK: - method
     private func setupUI() {
-        backgroundColor = ThemeColor.veryLightGray
+        backgroundColor = ThemeColor.graySecondary
         addCornerRadius(radius: 8)
 
         addSubview(leftImageView)
         leftImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(6)
-            make.bottom.equalToSuperview().offset(-6)
+            make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(8)
             make.width.height.equalTo(25)
         }
