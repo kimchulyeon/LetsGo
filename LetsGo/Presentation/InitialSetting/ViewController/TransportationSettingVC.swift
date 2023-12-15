@@ -110,9 +110,9 @@ class TransportationSettingVC: UIViewController {
                 }
                 else {
                     nextButton.isEnabled = true
-                    nextButton.backgroundColor = ThemeColor.blackPrimary
+                    nextButton.backgroundColor = ThemeColor.yellow
                     buttons.forEach{ $0.backgroundColor = ThemeColor.lightGray }
-                    buttons[index].backgroundColor = ThemeColor.blackPrimary
+                    buttons[index].backgroundColor = ThemeColor.yellow
                 }
                 
             })

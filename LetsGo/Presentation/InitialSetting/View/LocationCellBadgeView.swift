@@ -47,7 +47,7 @@ class LocationCellBadgeView: UIView {
 
         switch type {
         case .address: 
-            backgroundColor = ThemeColor.blackPrimary
+            backgroundColor = ThemeColor.yellow
         case .postNumber, .phoneNumber:
             backgroundColor = ThemeColor.grayPrimary
         }

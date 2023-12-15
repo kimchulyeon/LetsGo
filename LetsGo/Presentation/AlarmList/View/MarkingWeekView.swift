@@ -9,12 +9,13 @@ import UIKit
 
 class MarkingWeekView: UIView {
     //MARK: - properties
+    #warning("요일 배경 / 텍스트 색 조화롭게 수정")
     let containerButtonView: UIButton = {
         let v = UIButton()
         v.addCornerRadius(radius: 12)
         v.backgroundColor = ThemeColor.grayPrimary
         v.titleLabel?.font = ThemeFont.demiBold(size: 14)
-        v.titleLabel?.textColor = ThemeColor.white
+        v.titleLabel?.textColor = ThemeColor.text
         return v
     }()
     

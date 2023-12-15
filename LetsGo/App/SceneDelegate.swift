@@ -20,6 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let viewModel = InitialSettingsPageVM()
 //        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
         
+
+        
+        let loginViewModel = LoginVM()
+        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
+        window?.rootViewController = navigationController
+        
         window?.rootViewController = BaseTabBarController()
     }
 
@@ -51,7 +57,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 

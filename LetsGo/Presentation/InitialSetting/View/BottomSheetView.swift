@@ -37,7 +37,7 @@ class BottomSheetView: UIView {
         btn.setTitleColor(ThemeColor.weakText, for: .normal)
         btn.backgroundColor = .clear
         btn.addCornerRadius(radius: 8)
-        btn.layer.borderColor = ThemeColor.blackPrimary.cgColor
+        btn.layer.borderColor = ThemeColor.yellow.cgColor
         btn.layer.borderWidth = 1
         return btn
     }()
@@ -45,7 +45,7 @@ class BottomSheetView: UIView {
         let btn = UIButton()
         btn.setTitle("맞아요", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = ThemeColor.blackPrimary
+        btn.backgroundColor = ThemeColor.yellow
         btn.addCornerRadius(radius: 8)
         return btn
     }()

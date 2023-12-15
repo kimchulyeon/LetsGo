@@ -12,9 +12,10 @@ class AlarmTableCell: UITableViewCell {
     //MARK: - properties
     static let identifier = "alarmTableCell"
     
-    private let containerView: GradientView = {
-        let v = GradientView(hex1: "#BDE7F0", hex2: "#BDE7F0", cornerRadius: 12)
+    private let containerView: UIView = {
+        let v = UIView()
         v.addCornerRadius(radius: 12)
+        v.backgroundColor = ThemeColor.moreWeakBackground
         return v
     }()
     private let weekButtonHStackView: UIStackView = {
@@ -24,11 +25,13 @@ class AlarmTableCell: UITableViewCell {
         sv.spacing = 8
         return sv
     }()
-    private let moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
         btn.backgroundColor = .clear
-        btn.tintColor = ThemeColor.blackPrimary
+        btn.tintColor = ThemeColor.weakText
+        btn.showsMenuAsPrimaryAction = true
+        btn.menu = setupMoreButtonMenu()
         return btn
     }()
     private let nameLabel: UILabel = {
@@ -49,9 +52,10 @@ class AlarmTableCell: UITableViewCell {
         lb.textColor = ThemeColor.text
         return lb
     }()
+    #warning("색 바꾸기")
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
-        sw.onTintColor = ThemeColor.blackPrimary
+        sw.onTintColor = ThemeColor.pink
         return sw
     }()
     private let dividerLineView: UIView = {
@@ -62,13 +66,13 @@ class AlarmTableCell: UITableViewCell {
     private let departureLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.moreWeakText
+        lb.textColor = ThemeColor.darkGreen
         return lb
     }()
     private let destinationLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.moreWeakText
+        lb.textColor = ThemeColor.darkGreen
         lb.textAlignment = .right
         return lb
     }()
@@ -90,11 +94,15 @@ class AlarmTableCell: UITableViewCell {
         super.prepareForReuse()
         
         timeLabel.text = nil
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        containerView.layer.sublayers?.first?.frame = containerView.bounds
+        nameLabel.text = nil
+        transportationLabel.text = nil
+        alarmToggle.isOn = true
+        departureLabel.text = nil
+        destinationLabel.text = nil
+        weekButtonHStackView.arrangedSubviews.forEach { view in
+            guard let v = view as? MarkingWeekView else { return }
+            v.backgroundColor = nil
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -115,14 +123,14 @@ class AlarmTableCell: UITableViewCell {
         }
         
         containerView.addSubview(weekButtonHStackView)
+        weekButtonHStackView.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(16)
+            make.leading.equalTo(containerView.snp.leading).offset(14)
+        }
         DayOfWeek.allCases.forEach { weekCase in
             let week = weekCase.rawValue
             let button = MarkingWeekView(title: week)
             weekButtonHStackView.addArrangedSubview(button)
-        }
-        weekButtonHStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.equalToSuperview().offset(14)
         }
         
         containerView.addSubview(moreButton)
@@ -178,6 +186,13 @@ class AlarmTableCell: UITableViewCell {
         
     }
     
+    #warning("텍스트? / 아이콘 빨간색으로 변경")
+    private func setupMoreButtonMenu() -> UIMenu {
+        let deleteAction = UIAction(title: "삭제하기", image: UIImage(systemName: "trash"), handler: { _ in print("DELETE >>>> ")})
+        let menu = UIMenu(title: "", image: UIImage(systemName: "trash"), identifier: nil, options: .displayInline, children: [deleteAction])
+        return menu
+    }
+    
     func configure(with data: Alarm) {
         selectionStyle = .none
         
@@ -185,7 +200,7 @@ class AlarmTableCell: UITableViewCell {
         let attributedString = NSMutableAttributedString(string: timeText)
         guard let range = timeText.range(of: "까지") else { return }
         let nsRange = NSRange(range, in: timeText)
-        attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.weakText], range: nsRange)
+        attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.moreWeakText], range: nsRange)
         timeLabel.attributedText = attributedString
         
         nameLabel.text = data.alarmTitme
@@ -194,7 +209,7 @@ class AlarmTableCell: UITableViewCell {
         let t_attributedString = NSMutableAttributedString(string: transportationText)
         guard let range = transportationText.range(of: "로") else { return }
         let t_nsRange = NSRange(range, in: transportationText)
-        t_attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.weakText], range: t_nsRange)
+        t_attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.moreWeakText], range: t_nsRange)
         transportationLabel.attributedText = t_attributedString
         
         alarmToggle.isOn = data.isOn
@@ -207,7 +222,7 @@ class AlarmTableCell: UITableViewCell {
                 guard let v = view as? MarkingWeekView else { return }
                 
                 if v.containerButtonView.titleLabel?.text == weekCase.rawValue {
-                    v.containerButtonView.backgroundColor = ThemeColor.blackPrimary
+                    v.containerButtonView.backgroundColor = ThemeColor.strongYellow
                 }
             }
         }

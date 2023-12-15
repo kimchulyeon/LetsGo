@@ -27,7 +27,7 @@ class AlarmListVC: UIViewController {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "plus"), for: .normal)
         btn.tintColor = .white
-        btn.backgroundColor = ThemeColor.blackPrimary
+        btn.backgroundColor = ThemeColor.yellow
         return btn
     }()
     
@@ -51,9 +51,10 @@ class AlarmListVC: UIViewController {
     private func setupUI() {
         view.backgroundColor = ThemeColor.background
         
+        #warning("네비게이션 configureation 배경색 / 타이틀 색 일치 시키기")
         navigationItem.title = "알람"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: ThemeColor.blackPrimary, 
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: ThemeColor.text,
                                                                         .font: ThemeFont.demiBold(size: 28)]
         
         view.addSubview(alarmTableView)

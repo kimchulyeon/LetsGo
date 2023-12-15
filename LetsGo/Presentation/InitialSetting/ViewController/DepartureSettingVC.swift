@@ -159,11 +159,11 @@ class DepartureSettingVC: UIViewController {
                 switch type {
                 case .keyword:
                     searchTextField.textField.placeholder = "키워드를 입력해주세요"
-                    searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.blackPrimary
+                    searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.yellow
                     searchTypeButtonView.keywordButton.setTitleColor(.white, for: .normal)
                 case .address:
                     searchTextField.textField.placeholder = "주소를 입력해주세요"
-                    searchTypeButtonView.addressButton.backgroundColor = ThemeColor.blackPrimary
+                    searchTypeButtonView.addressButton.backgroundColor = ThemeColor.yellow
                     searchTypeButtonView.addressButton.setTitleColor(.white, for: .normal)
                 }
             }

@@ -19,7 +19,7 @@ class SettingTextField: UIView {
     let textField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
-        tf.textColor = ThemeColor.blackPrimary
+        tf.textColor = ThemeColor.yellow
         return tf
     }()
     

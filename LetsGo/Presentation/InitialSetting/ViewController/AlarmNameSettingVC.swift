@@ -93,7 +93,7 @@ class AlarmNameSettingVC: UIViewController {
                     self.nextButton.backgroundColor = ThemeColor.grayPrimary
                 } else {
                     self.nextButton.isEnabled = true
-                    self.nextButton.backgroundColor = ThemeColor.blackPrimary
+                    self.nextButton.backgroundColor = ThemeColor.yellow
                 }
             }
             .disposed(by: bag)
