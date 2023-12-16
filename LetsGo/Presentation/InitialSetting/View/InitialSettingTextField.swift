@@ -1,5 +1,5 @@
 //
-//  SearchTextField.swift
+//  InitialSettingTextField.swift
 //  LetsGo
 //
 //  Created by chulyeon kim on 12/7/23.
@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class SettingTextField: UIView {
+class InitialSettingTextField: UIView {
     
     //MARK: - properties
     private let leftImageView: UIImageView = {
@@ -19,7 +19,7 @@ class SettingTextField: UIView {
     let textField: UITextField = {
         let tf = UITextField()
         tf.autocapitalizationType = .none
-        tf.textColor = ThemeColor.yellow
+        tf.textColor = ThemeColor.text
         return tf
     }()
     

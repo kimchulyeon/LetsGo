@@ -117,10 +117,10 @@ class DayOfWeekSettingVC: UIViewController {
                 }
                 else {
                     nextButton.isEnabled = true
-                    nextButton.backgroundColor = ThemeColor.yellow
+                    nextButton.backgroundColor = ThemeColor.blackPrimary
                     
                     days.forEach { (day, index) in
-                        buttons[index].backgroundColor = ThemeColor.yellow
+                        buttons[index].backgroundColor = ThemeColor.blackPrimary
                     }
                 }
             }

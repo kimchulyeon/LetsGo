@@ -10,7 +10,7 @@ import UIKit
 class MarkingWeekView: UIView {
     //MARK: - properties
     #warning("요일 배경 / 텍스트 색 조화롭게 수정")
-    let containerButtonView: UIButton = {
+    let roundedButton: UIButton = {
         let v = UIButton()
         v.addCornerRadius(radius: 12)
         v.backgroundColor = ThemeColor.grayPrimary
@@ -32,9 +32,9 @@ class MarkingWeekView: UIView {
     private func setupUI(with title: String) {
         backgroundColor = .clear
         
-        addSubview(containerButtonView)
-        containerButtonView.setTitle(title, for: .normal)
-        containerButtonView.snp.makeConstraints { make in
+        addSubview(roundedButton)
+        roundedButton.setTitle(title, for: .normal)
+        roundedButton.snp.makeConstraints { make in
             make.height.width.equalTo(24)
             make.edges.equalToSuperview()
         }

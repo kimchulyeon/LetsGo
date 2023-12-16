@@ -26,7 +26,7 @@ class DepartureSettingVC: UIViewController {
         return lb
     }()
     private let searchTypeButtonView = SearchTypeButtonView()
-    private let searchTextField = SettingTextField()
+    private let searchTextField = InitialSettingTextField()
     private let locationTableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
@@ -159,11 +159,11 @@ class DepartureSettingVC: UIViewController {
                 switch type {
                 case .keyword:
                     searchTextField.textField.placeholder = "키워드를 입력해주세요"
-                    searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.yellow
+                    searchTypeButtonView.keywordButton.backgroundColor = ThemeColor.blackPrimary
                     searchTypeButtonView.keywordButton.setTitleColor(.white, for: .normal)
                 case .address:
                     searchTextField.textField.placeholder = "주소를 입력해주세요"
-                    searchTypeButtonView.addressButton.backgroundColor = ThemeColor.yellow
+                    searchTypeButtonView.addressButton.backgroundColor = ThemeColor.blackPrimary
                     searchTypeButtonView.addressButton.setTitleColor(.white, for: .normal)
                 }
             }

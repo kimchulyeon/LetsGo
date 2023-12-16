@@ -15,7 +15,7 @@ class AlarmTableCell: UITableViewCell {
     private let containerView: UIView = {
         let v = UIView()
         v.addCornerRadius(radius: 12)
-        v.backgroundColor = ThemeColor.moreWeakBackground
+        v.backgroundColor = ThemeColor.bluePrimary
         return v
     }()
     private let weekButtonHStackView: UIStackView = {
@@ -55,7 +55,7 @@ class AlarmTableCell: UITableViewCell {
     #warning("색 바꾸기")
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
-        sw.onTintColor = ThemeColor.pink
+        sw.onTintColor = ThemeColor.blackPrimary
         return sw
     }()
     private let dividerLineView: UIView = {
@@ -66,13 +66,13 @@ class AlarmTableCell: UITableViewCell {
     private let departureLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.darkGreen
+        lb.textColor = ThemeColor.text
         return lb
     }()
     private let destinationLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.darkGreen
+        lb.textColor = ThemeColor.text
         lb.textAlignment = .right
         return lb
     }()
@@ -221,8 +221,8 @@ class AlarmTableCell: UITableViewCell {
             weekButtonHStackView.arrangedSubviews.forEach { view in
                 guard let v = view as? MarkingWeekView else { return }
                 
-                if v.containerButtonView.titleLabel?.text == weekCase.rawValue {
-                    v.containerButtonView.backgroundColor = ThemeColor.strongYellow
+                if v.roundedButton.titleLabel?.text == weekCase.rawValue {
+                    v.roundedButton.backgroundColor = ThemeColor.blackPrimary
                 }
             }
         }

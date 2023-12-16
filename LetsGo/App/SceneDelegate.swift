@@ -17,16 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         
-//        let viewModel = InitialSettingsPageVM()
-//        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
+        // SETTING
+        let viewModel = InitialSettingsPageVM()
+        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
         
 
+        // LOGIN
+//        let loginViewModel = LoginVM()
+//        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
+//        window?.rootViewController = navigationController
         
-        let loginViewModel = LoginVM()
-        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
-        window?.rootViewController = navigationController
-        
-        window?.rootViewController = BaseTabBarController()
+        // HOME
+//        window?.rootViewController = BaseTabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

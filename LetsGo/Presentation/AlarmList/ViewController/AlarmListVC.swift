@@ -27,7 +27,7 @@ class AlarmListVC: UIViewController {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "plus"), for: .normal)
         btn.tintColor = .white
-        btn.backgroundColor = ThemeColor.yellow
+        btn.backgroundColor = ThemeColor.blackPrimary
         return btn
     }()
     

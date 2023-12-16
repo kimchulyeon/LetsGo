@@ -13,7 +13,7 @@ class SearchTypeButtonView: UIView {
     let keywordButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("키워드", for: .normal)
-        btn.setTitleColor(ThemeColor.yellow, for: .normal)
+        btn.setTitleColor(ThemeColor.blackPrimary, for: .normal)
         btn.titleLabel?.font = ThemeFont.demiBold(size: 15)
         return btn
     }()
@@ -21,7 +21,7 @@ class SearchTypeButtonView: UIView {
     let addressButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("주소", for: .normal)
-        btn.setTitleColor(ThemeColor.yellow, for: .normal)
+        btn.setTitleColor(ThemeColor.blackPrimary, for: .normal)
         btn.titleLabel?.font = ThemeFont.demiBold(size: 15)
         return btn
     }()
@@ -50,7 +50,7 @@ class SearchTypeButtonView: UIView {
         backgroundColor = .clear
         addCornerRadius(radius: 8)
         layer.borderWidth = 1
-        layer.borderColor = ThemeColor.yellow.cgColor
+        layer.borderColor = ThemeColor.blackPrimary.cgColor
         
         addSubview(buttonStackView)
         buttonStackView.snp.makeConstraints { make in

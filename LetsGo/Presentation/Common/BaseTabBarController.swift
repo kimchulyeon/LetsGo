@@ -21,8 +21,8 @@ class BaseTabBarController: UITabBarController {
     //MARK: - method
     private func setupUI() {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = ThemeColor.weakBackground
-        tabBar.tintColor = ThemeColor.yellowPrimary
+        appearance.backgroundColor = ThemeColor.background
+        tabBar.tintColor = ThemeColor.blackPrimary
         tabBar.scrollEdgeAppearance = appearance
         tabBar.standardAppearance = appearance
     }
@@ -30,12 +30,12 @@ class BaseTabBarController: UITabBarController {
     private func setupTabBarItems() {
         let alarmListVM = AlarmListVM()
         let alarmListVC = AlarmListVC(viewModel: alarmListVM)
-        setTabBarItem(of: alarmListVC, image: UIImage(systemName: "alarm"), selectedImage: UIImage(systemName: "alarm"))
+        setTabBarItem(of: alarmListVC, image: UIImage(systemName: "alarm"), selectedImage: UIImage(systemName: "alarm.fill"))
         let alarmNav = UINavigationController(rootViewController: alarmListVC)
         
         let appSettingVM = AppSettingVM()
         let appSettingVC = AppSettingVC(viewModel: appSettingVM)
-        setTabBarItem(of: appSettingVC, image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape"))
+        setTabBarItem(of: appSettingVC, image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
         let appNav = UINavigationController(rootViewController: appSettingVC)
         
         viewControllers = [alarmNav, appNav]

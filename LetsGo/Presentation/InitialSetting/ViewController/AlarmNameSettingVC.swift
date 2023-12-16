@@ -25,7 +25,7 @@ class AlarmNameSettingVC: UIViewController {
         lb.text = "무엇을 위한 알람인가요?"
         return lb
     }()
-    private let textFieldView = SettingTextField(leftImage: UIImage(),
+    private let textFieldView = InitialSettingTextField(leftImage: UIImage(),
                                              placeholder: "학교 가기... 회사가기...",
                                              fontSize: 28)
     private let nextButton = SelectButton(text: "다음")
@@ -93,7 +93,7 @@ class AlarmNameSettingVC: UIViewController {
                     self.nextButton.backgroundColor = ThemeColor.grayPrimary
                 } else {
                     self.nextButton.isEnabled = true
-                    self.nextButton.backgroundColor = ThemeColor.yellow
+                    self.nextButton.backgroundColor = ThemeColor.blackPrimary
                 }
             }
             .disposed(by: bag)
