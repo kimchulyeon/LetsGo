@@ -42,5 +42,27 @@ struct Test {
               arriveHour: 15,
               arriveMinute: 50,
               floatTime: 15),
+        
+        Alarm(alarmTitme: "공부하기",
+              transportationType: .car,
+              departurePlaceName: "선릉로 8",
+              destinationPlaceName: "삼성역",
+              departureLocation: CLLocation(latitude: 37.413294, longitude: 127.269311),
+              destinationLocation: CLLocation(latitude: 37.413294, longitude: 127.269311),
+              days: [.thu, .fri, .sat, .sun],
+              arriveHour: 12,
+              arriveMinute: 50,
+              floatTime: 15),
+        
+        Alarm(alarmTitme: "자전거 타기",
+              transportationType: .bike,
+              departurePlaceName: "도곡역",
+              destinationPlaceName: "여의도한강공원",
+              departureLocation: CLLocation(latitude: 37.413294, longitude: 127.269311),
+              destinationLocation: CLLocation(latitude: 37.413294, longitude: 127.269311),
+              days: [.fri, .sat],
+              arriveHour: 15,
+              arriveMinute: 50,
+              floatTime: 15),
     ]
 }

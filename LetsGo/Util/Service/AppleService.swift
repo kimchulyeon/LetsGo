@@ -8,7 +8,7 @@
 import CryptoKit
 import AuthenticationServices
 import FirebaseAuth
-import Combine
+import RxSwift
 
 final class AppleService: NSObject {
     static let shared = AppleService()
@@ -18,9 +18,9 @@ final class AppleService: NSObject {
     //MARK: - properties
     var initLoginFlowViewController: UIViewController! // 📌 인증 인터페이스를 LoginVC에서 제공하기 위해
     
-    private let appleOAuthCredentialSubject = PassthroughSubject<AuthCredential, Error>()
-    var appleOAuthCredentialPublisher: AnyPublisher<AuthCredential, Error> {
-        appleOAuthCredentialSubject.eraseToAnyPublisher()
+    private let appleOAuthCredentialSubject = PublishSubject<AuthCredential>()
+    var appleOAuthCredentialObservable: Observable<AuthCredential> {
+        appleOAuthCredentialSubject.asObserver()
     }
 
     
@@ -105,7 +105,7 @@ extension AppleService: ASAuthorizationControllerDelegate {
                                                            rawNonce: nonce,
                                                            fullName: appleIDCredential.fullName)
             
-            appleOAuthCredentialSubject.send(credential)
+            appleOAuthCredentialSubject.onNext(credential)
 
         }
     }
@@ -113,7 +113,6 @@ extension AppleService: ASAuthorizationControllerDelegate {
     // 📌 로그인 에러 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Sign🔴  in with Apple errored: \(error)")
-        appleOAuthCredentialSubject.send(completion: .failure(error))
     }
 }
 

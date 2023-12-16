@@ -23,6 +23,14 @@ class LoginVC: UIViewController {
         iv.contentMode = .scaleAspectFill
         return iv
     }()
+    private let descLabel: UILabel = {
+        let lb = UILabel()
+        lb.font = ThemeFont.demiBold(size: 16)
+        lb.text = TextConstant.loginDesc
+        lb.textColor = ThemeColor.weakText
+        lb.numberOfLines = 0
+        return lb
+    }()
     private lazy var appleButton = ASAuthorizationAppleIDButton()
     private lazy var googleButton = GoogleButton()
     private lazy var vStackView: UIStackView = {
@@ -53,13 +61,6 @@ class LoginVC: UIViewController {
         
         setupUI()
         bindViewModel()
-        
-        for familyName in UIFont.familyNames {
-            print("Family Name: \(familyName)")
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-                print("--Font Name: \(fontName)")
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,11 +83,17 @@ class LoginVC: UIViewController {
         
         view.addSubview(logoImage)
         logoImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
-            make.leading.equalTo(view.snp.leading).offset(-30)
+            make.top.equalTo(view.snp.top).offset(-20)
+            make.leading.equalTo(view.snp.leading).offset(-15)
             make.height.width.equalTo(300)
         }
         
+        view.addSubview(descLabel)
+        descLabel.snp.makeConstraints { make in
+            make.top.equalTo(logoImage.snp.bottom).offset(-85)
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+        }
         
         googleButton.snp.makeConstraints { make in
             make.height.equalTo(50)
@@ -106,19 +113,28 @@ class LoginVC: UIViewController {
         
         let output = viewModel.transform(input: input)
         
-        viewModel.isLoading
-            .observe(on: MainScheduler.instance)
-            .withUnretained(self)
-            .subscribe { (self, isLoading) in
-                if isLoading {
-                    self.loadingSpinner.show(in: self.view, animated: true)
-                } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        self.loadingSpinner.dismiss(animated: true)
-                    }
+        output.loginResult
+            .subscribe { isSucceed in
+                if isSucceed {
+                    // 성공하면 알람 설정하러 가기
                 }
             }
             .disposed(by: bag)
+//
+//        
+//        viewModel.isLoading
+//            .observe(on: MainScheduler.instance)
+//            .withUnretained(self)
+//            .subscribe { (self, isLoading) in
+//                if isLoading {
+//                    self.loadingSpinner.show(in: self.view, animated: true)
+//                } else {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                        self.loadingSpinner.dismiss(animated: true)
+//                    }
+//                }
+//            }
+//            .disposed(by: bag)
     }
     
     

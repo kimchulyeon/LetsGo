@@ -12,10 +12,8 @@ import FirebaseAuth
 
 class LoginVM {
     //MARK: - properties
-    let isLoading = Observable.just(false)
-
-#warning("HERE")
     private let bag = DisposeBag()
+    private let loginUseCase: LoginUseCaseProtocol
     
     struct Input {
         let appleLoginButtonTapped: Observable<Void>
@@ -27,17 +25,25 @@ class LoginVM {
     }
 
     //MARK: - lifecycle
-
+    init(loginUseCase: LoginUseCaseProtocol) {
+        self.loginUseCase = loginUseCase
+    }
+    
 
     //MARK: - method
     func transform(input: Input) -> Output {
         let output = Output()
         
         input.appleLoginButtonTapped
+            .withUnretained(self)
+            .flatMapLatest { (self, _) in
+                self.loginUseCase.loginWithApple()
+            }
             .subscribe { _ in
-                // UseCase
+                print("APPLE LOGIN >>>>")
             }
             .disposed(by: bag)
+            
         
         input.googleLoginButtonTapped
             .subscribe { _ in
