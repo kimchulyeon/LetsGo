@@ -15,7 +15,7 @@ class AlarmTableCell: UITableViewCell {
     private let containerView: UIView = {
         let v = UIView()
         v.addCornerRadius(radius: 12)
-        v.backgroundColor = ThemeColor.bluePrimary
+        v.backgroundColor = ThemeColor.greenPrimary
         return v
     }()
     private let weekButtonHStackView: UIStackView = {
@@ -52,7 +52,6 @@ class AlarmTableCell: UITableViewCell {
         lb.textColor = ThemeColor.text
         return lb
     }()
-    #warning("색 바꾸기")
     private let alarmToggle: UISwitch = {
         let sw = UISwitch()
         sw.onTintColor = ThemeColor.blackPrimary
@@ -66,13 +65,13 @@ class AlarmTableCell: UITableViewCell {
     private let departureLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.text
+        lb.textColor = ThemeColor.moreWeakText
         return lb
     }()
     private let destinationLabel: UILabel = {
         let lb = UILabel()
         lb.font = ThemeFont.demiBold(size: 11)
-        lb.textColor = ThemeColor.text
+        lb.textColor = ThemeColor.weakText
         lb.textAlignment = .right
         return lb
     }()
@@ -186,10 +185,9 @@ class AlarmTableCell: UITableViewCell {
         
     }
     
-    #warning("텍스트? / 아이콘 빨간색으로 변경")
     private func setupMoreButtonMenu() -> UIMenu {
-        let deleteAction = UIAction(title: "삭제하기", image: UIImage(systemName: "trash"), handler: { _ in print("DELETE >>>> ")})
-        let menu = UIMenu(title: "", image: UIImage(systemName: "trash"), identifier: nil, options: .displayInline, children: [deleteAction])
+        let deleteAction = UIAction(title: "삭제하기", image: UIImage(systemName: "trash")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal), handler: { _ in print("DELETE >>>> ")})
+        let menu = UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [deleteAction])
         return menu
     }
     

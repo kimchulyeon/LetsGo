@@ -51,7 +51,6 @@ class AlarmListVC: UIViewController {
     private func setupUI() {
         view.backgroundColor = ThemeColor.background
         
-        #warning("네비게이션 configureation 배경색 / 타이틀 색 일치 시키기")
         navigationItem.title = "알람"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: ThemeColor.text,

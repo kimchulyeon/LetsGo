@@ -10,6 +10,8 @@
 		3756A8CE2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8CD2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift */; };
 		3756A8D02B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8CF2B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift */; };
 		3756A8D22B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756A8D12B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift */; };
+		37A9C2452B2D7681008BCB10 /* 한국기계연구원_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A9C2432B2D7681008BCB10 /* 한국기계연구원_bold.ttf */; };
+		37A9C2462B2D7681008BCB10 /* 한국기계연구원_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A9C2442B2D7681008BCB10 /* 한국기계연구원_Light.ttf */; };
 		6E03518A2B2ADEC600E2EB0F /* AlarmNameSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0351892B2ADEC600E2EB0F /* AlarmNameSettingVC.swift */; };
 		6E03518C2B2ADEDF00E2EB0F /* AlarmNameSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E03518B2B2ADEDF00E2EB0F /* AlarmNameSettingVM.swift */; };
 		6E0351902B2BE1F700E2EB0F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E03518F2B2BE1F700E2EB0F /* GradientView.swift */; };
@@ -120,6 +122,8 @@
 		3756A8CD2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUseCaseProtocol.swift; sourceTree = "<group>"; };
 		3756A8CF2B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchRepositoryProtocol.swift; sourceTree = "<group>"; };
 		3756A8D12B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchDatasourceProtocol.swift; sourceTree = "<group>"; };
+		37A9C2432B2D7681008BCB10 /* 한국기계연구원_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "한국기계연구원_bold.ttf"; sourceTree = "<group>"; };
+		37A9C2442B2D7681008BCB10 /* 한국기계연구원_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "한국기계연구원_Light.ttf"; sourceTree = "<group>"; };
 		6E0351892B2ADEC600E2EB0F /* AlarmNameSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNameSettingVC.swift; sourceTree = "<group>"; };
 		6E03518B2B2ADEDF00E2EB0F /* AlarmNameSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNameSettingVM.swift; sourceTree = "<group>"; };
 		6E03518F2B2BE1F700E2EB0F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 		6E758CCF2B2002C8008C3DDC /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				37A9C2432B2D7681008BCB10 /* 한국기계연구원_bold.ttf */,
+				37A9C2442B2D7681008BCB10 /* 한국기계연구원_Light.ttf */,
 				6E758CD52B2008CC008C3DDC /* ThemeFont.swift */,
 			);
 			path = Font;
@@ -837,8 +843,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A9C2452B2D7681008BCB10 /* 한국기계연구원_bold.ttf in Resources */,
 				6EAC34F72B2C26A800BC471E /* GoogleService-Info.plist in Resources */,
 				6E758C632B1DC616008C3DDC /* LaunchScreen.storyboard in Resources */,
+				37A9C2462B2D7681008BCB10 /* 한국기계연구원_Light.ttf in Resources */,
 				6E758C602B1DC616008C3DDC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1113,8 +1121,11 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "거리 계산을 통해 향상된 알람 기능을 제공해드리기 위해 위치 권한이 꼭 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1122,9 +1133,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.CY.LetsGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1142,8 +1155,11 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "거리 계산을 통해 향상된 알람 기능을 제공해드리기 위해 위치 권한이 꼭 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1151,9 +1167,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.CY.LetsGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

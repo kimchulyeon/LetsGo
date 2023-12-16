@@ -17,26 +17,16 @@ class LoginVC: UIViewController {
     private let bag = DisposeBag()
     private let viewModel: LoginVM
     
-    private let welcomeLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "환영합니다"
-        lb.font = ThemeFont.bold(size: 20)
-        lb.tintColor = ThemeColor.text
-        return lb
-    }()
-    private let logoImageView: UIImageView = {
+    private let logoImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "google")
-        iv.contentMode = .scaleAspectFit
+        iv.image = UIImage(named: "logo")
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
-    private lazy var appleButton = ASAuthorizationAppleIDButton(type: .default, style: .white)
+    private lazy var appleButton = ASAuthorizationAppleIDButton()
     private lazy var googleButton = GoogleButton()
     private lazy var vStackView: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [
-            appleButton,
-            googleButton
-        ])
+        let sv = UIStackView(arrangedSubviews: [ appleButton, googleButton ])
         sv.axis = .vertical
         sv.distribution = .fillEqually
         sv.spacing = 12
@@ -63,6 +53,13 @@ class LoginVC: UIViewController {
         
         setupUI()
         bindViewModel()
+        
+        for familyName in UIFont.familyNames {
+            print("Family Name: \(familyName)")
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print("--Font Name: \(fontName)")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,30 +78,25 @@ class LoginVC: UIViewController {
     
     //MARK: - method
     private func setupUI() {
-        view = GradientView(hex1: "000000", hex2: "#2B294E", cornerRadius: 0)
+        view.backgroundColor = ThemeColor.background
         
-        view.addSubview(welcomeLabel)
-        welcomeLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-        welcomeLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.topMargin)
-            make.centerX.equalToSuperview()
-            make.height.greaterThanOrEqualTo(40)
+        view.addSubview(logoImage)
+        logoImage.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-80)
+            make.leading.equalTo(view.snp.leading).offset(-30)
+            make.height.width.equalTo(300)
         }
         
-        view.addSubview(logoImageView)
-        logoImageView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        logoImageView.snp.makeConstraints { make in
-            make.width.height.lessThanOrEqualTo(150)
-            make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(welcomeLabel.snp.bottom).offset(16)
+        
+        googleButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
         }
         
         view.addSubview(vStackView)
         vStackView.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(30)
             make.centerX.equalTo(view.snp.centerX)
             make.leading.equalTo(view.snp.leading).offset(30)
-            make.bottom.lessThanOrEqualTo(view.snp.bottomMargin).offset(-24)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-55)
         }
     }
     

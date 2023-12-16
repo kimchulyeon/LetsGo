@@ -9,7 +9,6 @@ import UIKit
 
 class MarkingWeekView: UIView {
     //MARK: - properties
-    #warning("요일 배경 / 텍스트 색 조화롭게 수정")
     let roundedButton: UIButton = {
         let v = UIButton()
         v.addCornerRadius(radius: 12)

@@ -19,6 +19,14 @@ struct ThemeFont {
     static func demiBold(size: CGFloat) -> UIFont {
         return UIFont(name: "AvenirNext-DemiBold", size: size) ?? .systemFont(ofSize: size)
     }
+    
+    static func customBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "KIMM_Bold", size: size)!
+    }
+    
+    static func customLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "KIMM_Light", size: size)!
+    }
 }
 
 

@@ -18,14 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         // SETTING
-        let viewModel = InitialSettingsPageVM()
-        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
+//        let viewModel = InitialSettingsPageVM()
+//        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
         
 
         // LOGIN
-//        let loginViewModel = LoginVM()
-//        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
-//        window?.rootViewController = navigationController
+        let loginViewModel = LoginVM()
+        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
+        window?.rootViewController = navigationController
         
         // HOME
 //        window?.rootViewController = BaseTabBarController()
