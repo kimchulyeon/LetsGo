@@ -20,7 +20,7 @@ class SceneRepository: SceneRepositoryProtocol {
             nowPresentedViewController = viewController
         }
         
-        print("현재 Top ViewController : \(nowPresentedViewController)")
+        print("현재 Top ViewController : \(String(describing: nowPresentedViewController))")
         return Observable.just(nowPresentedViewController)
     }
 }

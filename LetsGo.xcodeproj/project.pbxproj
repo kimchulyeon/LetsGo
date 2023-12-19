@@ -105,6 +105,9 @@
 		6EAC34F22B2C248200BC471E /* GoogleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC34EF2B2C248100BC471E /* GoogleService.swift */; };
 		6EAC34F72B2C26A800BC471E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EAC34F62B2C26A800BC471E /* GoogleService-Info.plist */; };
 		6EAC34F92B2C289C00BC471E /* AppleAuthButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC34F82B2C289C00BC471E /* AppleAuthButton+Rx.swift */; };
+		6EE6D1252B3152A500B1A38A /* UserDefaultsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6D1242B3152A500B1A38A /* UserDefaultsDatasource.swift */; };
+		6EE6D1272B3152B200B1A38A /* UserDefaultsDatasourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6D1262B3152B200B1A38A /* UserDefaultsDatasourceProtocol.swift */; };
+		6EE6D1292B31533E00B1A38A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */; };
 		6EF6B72E2B2A9EE30016F342 /* ComposeAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B72D2B2A9EE30016F342 /* ComposeAlarmVC.swift */; };
 		6EF6B7302B2A9F180016F342 /* ComposeAlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B72F2B2A9F180016F342 /* ComposeAlarmVM.swift */; };
 		6EF6B7332B2ABEDC0016F342 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7322B2ABEDC0016F342 /* Test.swift */; };
@@ -216,6 +219,9 @@
 		6EAC34F32B2C24A400BC471E /* LetsGo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetsGo.entitlements; sourceTree = "<group>"; };
 		6EAC34F62B2C26A800BC471E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EAC34F82B2C289C00BC471E /* AppleAuthButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppleAuthButton+Rx.swift"; sourceTree = "<group>"; };
+		6EE6D1242B3152A500B1A38A /* UserDefaultsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDatasource.swift; sourceTree = "<group>"; };
+		6EE6D1262B3152B200B1A38A /* UserDefaultsDatasourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDatasourceProtocol.swift; sourceTree = "<group>"; };
+		6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		6EF6B72D2B2A9EE30016F342 /* ComposeAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeAlarmVC.swift; sourceTree = "<group>"; };
 		6EF6B72F2B2A9F180016F342 /* ComposeAlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeAlarmVM.swift; sourceTree = "<group>"; };
 		6EF6B7322B2ABEDC0016F342 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				3756A8D12B220F1700A5ECA6 /* LocationSearchDatasourceProtocol.swift */,
+				6EE6D1262B3152B200B1A38A /* UserDefaultsDatasourceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -715,6 +722,7 @@
 			children = (
 				3756A8CC2B220C7600A5ECA6 /* Protocol */,
 				6E758CF72B216AD4008C3DDC /* LocationSearchDatasource.swift */,
+				6EE6D1242B3152A500B1A38A /* UserDefaultsDatasource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -735,6 +743,7 @@
 				6E758D042B219191008C3DDC /* Network.swift */,
 				6EF6B7322B2ABEDC0016F342 /* Test.swift */,
 				37A9C2472B2DFC74008BCB10 /* TextConstant.swift */,
+				6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -999,6 +1008,7 @@
 				6EF6B7332B2ABEDC0016F342 /* Test.swift in Sources */,
 				6EAC34F92B2C289C00BC471E /* AppleAuthButton+Rx.swift in Sources */,
 				6E693E1D2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift in Sources */,
+				6EE6D1292B31533E00B1A38A /* UserDefaultsKey.swift in Sources */,
 				6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */,
 				6EAC34F12B2C248200BC471E /* AppleService.swift in Sources */,
 				6E67C8142B283B82007F5121 /* MarkingWeekView.swift in Sources */,
@@ -1030,6 +1040,7 @@
 				6EAC34D62B2C1CF600BC471E /* LoginVM.swift in Sources */,
 				6E758CEC2B2150BA008C3DDC /* DepartureSettingVM.swift in Sources */,
 				6E17276F2B28166600BCF666 /* BaseTabBarController.swift in Sources */,
+				6EE6D1272B3152B200B1A38A /* UserDefaultsDatasourceProtocol.swift in Sources */,
 				3756A8CE2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift in Sources */,
 				6E758CDF2B2034E4008C3DDC /* FixedAlarm.swift in Sources */,
 				3756A8D02B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift in Sources */,
@@ -1038,6 +1049,7 @@
 				6E758CE12B2034EF008C3DDC /* UnFixedAlarm.swift in Sources */,
 				37A9C2482B2DFC74008BCB10 /* TextConstant.swift in Sources */,
 				6E758CBA2B1F0A92008C3DDC /* OnboardingViewController.swift in Sources */,
+				6EE6D1252B3152A500B1A38A /* UserDefaultsDatasource.swift in Sources */,
 				37A9C2602B2E078E008BCB10 /* SceneRepositoryProtocol.swift in Sources */,
 				6E693E1F2B26BD6300B82F1F /* ArrivalTimeSettingVM.swift in Sources */,
 				6E758CFA2B2179F1008C3DDC /* LocationSearchRepository.swift in Sources */,

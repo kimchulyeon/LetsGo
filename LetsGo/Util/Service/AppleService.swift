@@ -18,8 +18,8 @@ final class AppleService: NSObject {
     //MARK: - properties
     var initLoginFlowViewController: UIViewController! // 📌 인증 인터페이스를 LoginVC에서 제공하기 위해
     
-    private let appleOAuthCredentialSubject = PublishSubject<AuthCredential>()
-    var appleOAuthCredentialObservable: Observable<AuthCredential> {
+    private let appleOAuthCredentialSubject = PublishSubject<OAuthCredential>()
+    var appleOAuthCredentialObservable: Observable<OAuthCredential> {
         appleOAuthCredentialSubject.asObserver()
     }
 

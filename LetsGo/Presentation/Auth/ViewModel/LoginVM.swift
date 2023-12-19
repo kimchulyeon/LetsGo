@@ -40,6 +40,7 @@ class LoginVM {
                 self.loginUseCase.loginWithApple()
             }
             .subscribe { _ in
+                #warning("UserDefaults 로직 까지 UseCase에서 적용하고 loginResult에 성공 >>> VC에서 화면 이동")
                 print("APPLE LOGIN >>>>")
             }
             .disposed(by: bag)

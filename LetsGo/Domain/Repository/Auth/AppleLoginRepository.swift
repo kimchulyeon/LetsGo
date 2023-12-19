@@ -7,21 +7,27 @@
 
 import UIKit
 import RxSwift
+import FirebaseAuth
 
 class AppleLoginRepository: AppleLoginRepositoryProtocol {
+    //MARK: - properties
     private let bag = DisposeBag()
+    private let dataSource: UserDefaultsDatasourceProtocol
     
-    func authenticate(at vc: UIViewController?) -> Observable<Void> {
+    //MARK: - lifecycle
+    init(dataSource: UserDefaultsDatasourceProtocol) {
+        self.dataSource = dataSource
+    }
+    
+    //MARK: - method
+    func authenticate(at vc: UIViewController?) -> Observable<OAuthCredential> {
         guard let vc = vc else { return Observable.empty() }
         AppleService.shared.startSignInWithAppleFlow(view: vc)
         
-        AppleService.shared.appleOAuthCredentialObservable
-            .subscribe { credential in
-                print(credential)
-                
-            }
-            .disposed(by: bag)
-        
-        return Observable.just(())
+        return AppleService.shared.appleOAuthCredentialObservable
+    }
+    
+    func saveCredential(credential: AuthCredential) {
+        dataSource.saveCredential(credential: credential)
     }
 }

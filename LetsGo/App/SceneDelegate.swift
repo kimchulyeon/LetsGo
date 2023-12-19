@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 
         // LOGIN
-        let appleRepository = AppleLoginRepository()
+        let userDefaultsDatasource = UserDefaultsDatasource()
+        let appleRepository = AppleLoginRepository(dataSource: userDefaultsDatasource)
         let googleRepository = GoogleLoginRepository()
         let sceneRepository = SceneRepository()
         let loginUseCase = LoginUseCase(appleRepository: appleRepository,

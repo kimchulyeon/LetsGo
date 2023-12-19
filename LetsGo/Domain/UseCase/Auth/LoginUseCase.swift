@@ -29,6 +29,10 @@ class LoginUseCase: LoginUseCaseProtocol {
             .flatMapLatest { (self, vc) in
                 self.appleRepository.authenticate(at: vc)
             }
+            .flatMap { oAuthCredential -> Observable<Void> in
+                #warning("파이어베이스 로그인 로직 >>>> ")
+                return Observable.just(())
+            }
     }
     
     func loginWithGoogle() {
