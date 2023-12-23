@@ -117,6 +117,10 @@ class LoginVC: UIViewController {
             .subscribe { isSucceed in
                 if isSucceed {
                     // 성공하면 알람 설정하러 가기
+                    print("성공 >>>> ")
+                } else {
+                    #warning("앱 실행 시 실패가 뜸")
+                    print("실패 >>>> ")
                 }
             }
             .disposed(by: bag)

@@ -13,17 +13,17 @@ import RxSwift
 final class AppleService: NSObject {
     static let shared = AppleService()
     private override init() { }
-    
-    
+
+
     //MARK: - properties
     var initLoginFlowViewController: UIViewController! // 📌 인증 인터페이스를 LoginVC에서 제공하기 위해
-    
-    private let appleOAuthCredentialSubject = PublishSubject<OAuthCredential>()
-    var appleOAuthCredentialObservable: Observable<OAuthCredential> {
-        appleOAuthCredentialSubject.asObserver()
+
+    private let appleUserData = PublishSubject<User>()
+    var appleUserDataObservable: Observable<User> {
+        appleUserData.asObserver()
     }
 
-    
+
     //MARK: - methods
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -64,7 +64,7 @@ final class AppleService: NSObject {
 
 
     /// 📌 애플 로그인 버튼 눌렀을 때 실행
-    @available(iOS 13, *) 
+    @available(iOS 13, *)
     func startSignInWithAppleFlow(view: UIViewController) {
         self.initLoginFlowViewController = view
 
@@ -104,10 +104,22 @@ extension AppleService: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.appleCredential(withIDToken: idTokenString,
                                                            rawNonce: nonce,
                                                            fullName: appleIDCredential.fullName)
-            
-            appleOAuthCredentialSubject.onNext(credential)
+
+            let name = formatName(credentialName: appleIDCredential.fullName)
+            let email = appleIDCredential.email
+
+            let user = User(uid: nil, username: name, email: email, credential: credential, provider: ProviderType.Apple.rawValue)
+
+            appleUserData.onNext(user)
 
         }
+    }
+
+    #warning("이거도 옮겨야하나?")
+    private func formatName(credentialName: PersonNameComponents?) -> String {
+        guard let fullName = credentialName else { return "" }
+        let formatter = PersonNameComponentsFormatter()
+        return formatter.string(from: fullName)
     }
 
     // 📌 로그인 에러 시

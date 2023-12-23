@@ -39,9 +39,12 @@ class LoginVM {
             .flatMapLatest { (self, _) in
                 self.loginUseCase.loginWithApple()
             }
-            .subscribe { _ in
-                #warning("UserDefaults 로직 까지 UseCase에서 적용하고 loginResult에 성공 >>> VC에서 화면 이동")
-                print("APPLE LOGIN >>>>")
+            .subscribe { result in
+                switch result.element {
+                case .success: output.loginResult.onNext(true)
+                case .fail: output.loginResult.onNext(false)
+                default: break
+                }
             }
             .disposed(by: bag)
             

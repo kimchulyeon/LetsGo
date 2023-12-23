@@ -9,6 +9,6 @@ import Foundation
 import RxSwift
 
 protocol LoginUseCaseProtocol {
-    func loginWithApple() -> Observable<Void>
+    func loginWithApple() -> Observable<LoginResultWithUserData>
     func loginWithGoogle() -> Void
 }

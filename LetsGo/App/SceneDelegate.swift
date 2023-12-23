@@ -27,9 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let appleRepository = AppleLoginRepository(dataSource: userDefaultsDatasource)
         let googleRepository = GoogleLoginRepository()
         let sceneRepository = SceneRepository()
+        let firebaseRepository = FirebaseRepository()
+        let firestoreUserRepository = FirestoreUserRepository()
         let loginUseCase = LoginUseCase(appleRepository: appleRepository,
                                         googleRepository: googleRepository,
-                                        sceneRepository: sceneRepository)
+                                        sceneRepository: sceneRepository,
+                                        firebaseRepository: firebaseRepository,
+                                        firestoreUserRepository: firestoreUserRepository)
         let loginViewModel = LoginVM(loginUseCase: loginUseCase)
         let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
         window?.rootViewController = navigationController
