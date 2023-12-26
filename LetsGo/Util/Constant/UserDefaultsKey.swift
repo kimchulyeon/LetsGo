@@ -8,5 +8,5 @@
 import Foundation
 
 struct UserDefaultsKey {
-    static let credential = "credential"
+    static let user = "user"
 }

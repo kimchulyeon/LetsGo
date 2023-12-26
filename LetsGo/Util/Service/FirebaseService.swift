@@ -20,9 +20,9 @@ class FirebaseService {
 
 
     // MARK: - method
-    func login(with userData: User) -> Observable<User> {
-        return Observable<User>.create { observer in
-            guard let credential = userData.credential else {
+    func login(with userData: User?) -> Observable<User?> {
+        return Observable<User?>.create { observer in
+            guard let credential = userData?.credential else {
                 observer.onError(LoginError.firebaseLoginFailed(""))
                 return Disposables.create()
             }
@@ -31,12 +31,14 @@ class FirebaseService {
                 guard let weakSelf = self else { return }
                 if let error = error {
                     print("Error \(error.localizedDescription) :::::::: ❌")
-                    observer.onError(LoginError.firebaseLoginFailed(error.localizedDescription))
+                    observer.onNext(nil)
+                    observer.onCompleted()
                     return
                 }
                 guard let uid = result?.user.uid else {
                     print("Error There is no UID while signing in Apple :::::::: ❌")
-                    observer.onError(LoginError.firebaseLoginFailed("No UID"))
+                    observer.onNext(nil)
+                    observer.onCompleted()
                     return
                 }
 
@@ -50,9 +52,9 @@ class FirebaseService {
     
     
     // MARK: - helper
-    private func updateUserData(with uid: String, _ userData: User) -> User {
+    private func updateUserData(with uid: String, _ userData: User?) -> User? {
         var updatedUserData = userData
-        updatedUserData.uid = uid
+        updatedUserData?.uid = uid
         return updatedUserData
     }
 

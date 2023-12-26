@@ -10,5 +10,5 @@ import FirebaseAuth
 import RxSwift
 
 protocol FirebaseRepositoryProtocol {
-    func login(with user: User) -> Observable<User>
+    func login(with user: User?) -> Observable<User?>
 }

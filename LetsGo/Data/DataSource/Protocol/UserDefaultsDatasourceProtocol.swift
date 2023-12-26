@@ -9,5 +9,6 @@ import Foundation
 import FirebaseAuth
 
 protocol UserDefaultsDatasourceProtocol {
-    func saveCredential(credential: AuthCredential)
+    func saveUser(_ user: User)
+    func getSavedUser() -> User?
 }

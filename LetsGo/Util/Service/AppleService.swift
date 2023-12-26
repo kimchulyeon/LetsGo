@@ -18,9 +18,9 @@ final class AppleService: NSObject {
     //MARK: - properties
     var initLoginFlowViewController: UIViewController! // 📌 인증 인터페이스를 LoginVC에서 제공하기 위해
 
-    private let appleUserData = PublishSubject<User>()
-    var appleUserDataObservable: Observable<User> {
-        appleUserData.asObserver()
+    private let appleUserSubject = PublishSubject<User?>()
+    var appleUserDataObservable: Observable<User?> {
+        appleUserSubject.asObserver()
     }
 
 
@@ -108,23 +108,27 @@ extension AppleService: ASAuthorizationControllerDelegate {
             let name = formatName(credentialName: appleIDCredential.fullName)
             let email = appleIDCredential.email
 
-            let user = User(uid: nil, username: name, email: email, credential: credential, provider: ProviderType.Apple.rawValue)
+            let userEntity = User(uid: nil,
+                            username: name,
+                            email: email,
+                            credential: credential,
+                            provider: ProviderType.Apple.rawValue)
 
-            appleUserData.onNext(user)
+            appleUserSubject.onNext(userEntity)
 
         }
-    }
-
-    #warning("이거도 옮겨야하나?")
-    private func formatName(credentialName: PersonNameComponents?) -> String {
-        guard let fullName = credentialName else { return "" }
-        let formatter = PersonNameComponentsFormatter()
-        return formatter.string(from: fullName)
     }
 
     // 📌 로그인 에러 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("Sign🔴  in with Apple errored: \(error)")
+        appleUserSubject.onNext(nil)
+    }
+    
+    private func formatName(credentialName: PersonNameComponents?) -> String {
+        guard let fullName = credentialName else { return "" }
+        let formatter = PersonNameComponentsFormatter()
+        return formatter.string(from: fullName)
     }
 }
 

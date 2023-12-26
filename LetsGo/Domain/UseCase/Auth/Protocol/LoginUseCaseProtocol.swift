@@ -9,6 +9,6 @@ import Foundation
 import RxSwift
 
 protocol LoginUseCaseProtocol {
-    func loginWithApple() -> Observable<LoginResultWithUserData>
-    func loginWithGoogle() -> Void
+    func oauthLogin(type: ProviderType) -> Observable<LoginResultWithUserData>
+    func saveUserForLogin(_ user: User)
 }

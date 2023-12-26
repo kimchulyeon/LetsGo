@@ -10,7 +10,7 @@ import FirebaseAuth
 import RxSwift
 
 class FirebaseRepository: FirebaseRepositoryProtocol {
-    func login(with user: User) -> Observable<User> {
+    func login(with user: User?) -> Observable<User?> {
         FirebaseService.shared.login(with: user)
     }
 }

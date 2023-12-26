@@ -10,7 +10,5 @@ import RxSwift
 import FirebaseAuth
 
 protocol AppleLoginRepositoryProtocol {
-    func authenticate(at vc: UIViewController?) -> Observable<User>
-    
-    func saveCredential(credential: AuthCredential)
+    func authenticate(at vc: UIViewController?) -> Observable<User?>
 }

@@ -8,15 +8,15 @@
 import GoogleSignIn
 import FirebaseAuth
 import FirebaseCore
-import Combine
+import RxSwift
 
 final class GoogleService {
     static let shared = GoogleService()
     private init() { }
 
-    private let googleOAuthCredentialSubject = PassthroughSubject<AuthCredential, Error>()
-    var googleOAuthCredentialPublisher: AnyPublisher<AuthCredential, Error> {
-        googleOAuthCredentialSubject.eraseToAnyPublisher()
+    private let googleUserSubject = PublishSubject<User?>()
+    var googleUserDataObservable: Observable<User?> {
+        googleUserSubject.asObserver()
     }
 }
 
@@ -29,21 +29,33 @@ extension GoogleService {
         GIDSignIn.sharedInstance.configuration = config
 
         GIDSignIn.sharedInstance.signIn(withPresenting: view) { [weak self] result, error in
-            if let error = error {
+            if let weakSelf = self,
+               let error = error {
                 print(error.localizedDescription)
-            } else {
-                guard let user = result?.user,
-                    let idToken = user.idToken?.tokenString else {
-
-                    print("Error There is no user or idToken while google sign in :::::::: ❌")
-                    return
-                }
-
-                let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                               accessToken: user.accessToken.tokenString)
-
-                self?.googleOAuthCredentialSubject.send(credential)
+                weakSelf.googleUserSubject.onNext(nil)
+                return
             }
+            guard let weakSelf = self,
+                  let user = result?.user,
+                  let idToken = user.idToken?.tokenString else {
+
+                print("Error There is no user or idToken while google sign in :::::::: ❌")
+                return
+            }
+
+            let username = result?.user.profile?.name
+            let email = result?.user.profile?.email
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+
+            let userEntity = User(uid: nil,
+                            docId: nil,
+                            username: username ?? "",
+                            email: email,
+                            credential: credential,
+                            provider: ProviderType.Google.rawValue)
+            
+            weakSelf.googleUserSubject.onNext(userEntity)
         }
     }
 }

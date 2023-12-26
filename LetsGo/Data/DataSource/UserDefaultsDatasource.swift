@@ -9,7 +9,20 @@ import Foundation
 import FirebaseAuth
 
 class UserDefaultsDatasource: UserDefaultsDatasourceProtocol {
-    func saveCredential(credential: AuthCredential) {
-        UserDefaults.standard.set(credential, forKey: UserDefaultsKey.credential)
+    func saveUser(_ user: User) {
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(user) {
+            print("저장 >>>> \(encodedUser)")
+            UserDefaults.standard.set(encodedUser, forKey: UserDefaultsKey.user)
+        }
+    }
+    
+    func getSavedUser() -> User? {
+        if let userData = UserDefaults.standard.data(forKey: UserDefaultsKey.user),
+           let user = try? JSONDecoder().decode(User.self, from: userData) {
+            
+            return user
+        }
+        return nil
     }
 }

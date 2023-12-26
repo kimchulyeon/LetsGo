@@ -116,65 +116,27 @@ class LoginVC: UIViewController {
         output.loginResult
             .subscribe { isSucceed in
                 if isSucceed {
-                    // 성공하면 알람 설정하러 가기
                     print("성공 >>>> ")
+                    // InitialSetting 으로 이동
                 } else {
-                    #warning("앱 실행 시 실패가 뜸")
                     print("실패 >>>> ")
+                    // 실패 알럿 띄워줘야하나?
                 }
             }
             .disposed(by: bag)
-//
-//        
-//        viewModel.isLoading
-//            .observe(on: MainScheduler.instance)
-//            .withUnretained(self)
-//            .subscribe { (self, isLoading) in
-//                if isLoading {
-//                    self.loadingSpinner.show(in: self.view, animated: true)
-//                } else {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                        self.loadingSpinner.dismiss(animated: true)
-//                    }
-//                }
-//            }
-//            .disposed(by: bag)
+        
+        output.isLoading
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .subscribe { (self, isLoading) in
+                if isLoading {
+                    self.loadingSpinner.show(in: self.view, animated: true)
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self.loadingSpinner.dismiss(animated: true)
+                    }
+                }
+            }
+            .disposed(by: bag)
     }
-    
-    
-    
-    
-//    private func handleAppleLogin() {
-//        AppleService.shared.startSignInWithAppleFlow(view: self)
-//    }
-//    
-//    private func handleGoogleLogin() {
-//        GoogleService.shared.startSignInWithGoogleFlow(with: self)
-//    }
-    
-    
-//    private func bindAppleLoginButtonAction() {
-//        viewModel.handleOAuthLogin(type: .apple)
-//            .sink { [weak self] result in self?.handleLoginResult(result: result) }
-//            .store(in: &cancellables)
-//    }
-//    
-//    
-//    private func bindGoogleLoginButtonAction() {
-//        viewModel.handleOAuthLogin(type: .google)
-//            .sink { [weak self] result in self?.handleLoginResult(result: result) }
-//            .store(in: &cancellables)
-//    }
-//    
-//    private func handleLoginResult(result: AuthResult) {
-//        switch result {
-//        case .success:
-//            print("🟢 로그인 성공")
-//            UserDefaultsManager.checkUserDefaultsValues()
-//            viewModel.afterSuccessLogin()
-//        case .failure(error: let error):
-//            print("🔴 Error \(error)")
-//            view.showAlert(content: "로그인에 실패하였습니다")
-//        }
-//    }
 }
