@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         
+//        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.user)
         setupRootViewController()
     }
 

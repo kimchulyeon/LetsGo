@@ -79,7 +79,9 @@ class OnboardingVC: UIViewController {
     }
     
     private func handleStartButton() {
-        let vm = InitialSettingsPageVM()
+        let alarmTimeCalculateRepository = AlarmTimeCalculateRepository()
+        let initialSettingUserCase = InitialSettingUseCase(alarmTimeCalculateRepository: alarmTimeCalculateRepository)
+        let vm = InitialSettingsPageVM(initialSettingUseCase: initialSettingUserCase)
         let vc = InitialSettingsPageVC(viewModel: vm)
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AlarmTimeCalculateRepositoryProtocol {
-    func calculateAlarmTime()
+    func calculateAlarmTime(with alarm: Alarm)
 }

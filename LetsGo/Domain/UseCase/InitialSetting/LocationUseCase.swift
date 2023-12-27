@@ -14,8 +14,8 @@ class LocationUseCase: LocationUseCaseProtocol {
     private let locationRepository: LocationSearchRepositoryProtocol
     
     // MARK: - lifecycle
-    init(locationRepository: LocationSearchRepositoryProtocol) {
-        self.locationRepository = locationRepository
+    init(locationRepository: LocationSearchRepositoryProtocol?) {
+        self.locationRepository = locationRepository!
     }
     
     // MARK: - method

@@ -17,7 +17,7 @@ class InitialSettingUseCase: InitialSettingUseCaseProtocol {
     }
     
     // MARK: - method
-    func calculateAlarmTime() {
-        alarmTimeCalculateRepository.calculateAlarmTime()
+    func calculateAlarmTime(with alarm: Alarm) {
+        alarmTimeCalculateRepository.calculateAlarmTime(with: alarm)
     }
 }

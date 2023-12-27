@@ -11,7 +11,8 @@ class AlarmTimeCalculateRepository: AlarmTimeCalculateRepositoryProtocol {
     // MARK: - properties
     
     // MARK: - method
-    func calculateAlarmTime() {
-        
+    func calculateAlarmTime(with alarm: Alarm) {
+        print("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
+        print(alarm)
     }
 }

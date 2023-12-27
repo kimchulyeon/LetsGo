@@ -15,8 +15,8 @@ class LocationSearchRepository: LocationSearchRepositoryProtocol {
     private let locationSearchdatasource: LocationSearchDatasourceProtocol
     
     // MARK: - lifecycle
-    init(locationSearchdatasource: LocationSearchDatasourceProtocol) {
-        self.locationSearchdatasource = locationSearchdatasource
+    init(locationSearchdatasource: LocationSearchDatasourceProtocol?) {
+        self.locationSearchdatasource = locationSearchdatasource!
     }
     
     // MARK: - method

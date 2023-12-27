@@ -8,5 +8,5 @@
 import Foundation
 
 protocol InitialSettingUseCaseProtocol {
-    func calculateAlarmTime()
+    func calculateAlarmTime(with alarm: Alarm)
 }
