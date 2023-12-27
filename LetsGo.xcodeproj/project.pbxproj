@@ -49,6 +49,8 @@
 		6E693E212B26C4EA00B82F1F /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E202B26C4EA00B82F1F /* DateFormatterService.swift */; };
 		6E693E232B26F98E00B82F1F /* InitialSettingsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E222B26F98E00B82F1F /* InitialSettingsPageVC.swift */; };
 		6E693E252B27020C00B82F1F /* InitialSettingsPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E693E242B27020C00B82F1F /* InitialSettingsPageVM.swift */; };
+		6E7486F32B3BE09D00621503 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7486F22B3BE09D00621503 /* SceneManager.swift */; };
+		6E7486F62B3BE43900621503 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7486F52B3BE43900621503 /* OnboardingVC.swift */; };
 		6E758C542B1DC615008C3DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C532B1DC615008C3DDC /* AppDelegate.swift */; };
 		6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C552B1DC615008C3DDC /* SceneDelegate.swift */; };
 		6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E758C5C2B1DC615008C3DDC /* LetsGo.xcdatamodeld */; };
@@ -181,6 +183,8 @@
 		6E693E202B26C4EA00B82F1F /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterService.swift; sourceTree = "<group>"; };
 		6E693E222B26F98E00B82F1F /* InitialSettingsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsPageVC.swift; sourceTree = "<group>"; };
 		6E693E242B27020C00B82F1F /* InitialSettingsPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsPageVM.swift; sourceTree = "<group>"; };
+		6E7486F22B3BE09D00621503 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		6E7486F52B3BE43900621503 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		6E758C502B1DC615008C3DDC /* LetsGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E758C532B1DC615008C3DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E758C552B1DC615008C3DDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -492,6 +496,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		6E7486F12B3BE09500621503 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6E7486F22B3BE09D00621503 /* SceneManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		6E758C472B1DC615008C3DDC = {
 			isa = PBXGroup;
 			children = (
@@ -635,6 +647,7 @@
 				6E693E1C2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift */,
 				6E693E222B26F98E00B82F1F /* InitialSettingsPageVC.swift */,
 				6E0351892B2ADEC600E2EB0F /* AlarmNameSettingVC.swift */,
+				6E7486F52B3BE43900621503 /* OnboardingVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -671,6 +684,7 @@
 		6E758CCA2B2001D7008C3DDC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6E7486F12B3BE09500621503 /* Manager */,
 				6E758D032B219180008C3DDC /* Constant */,
 				6E758CEF2B21641E008C3DDC /* Service */,
 				6E758CD92B200AC7008C3DDC /* Factory */,
@@ -1034,6 +1048,7 @@
 				378796ED2B3B3FA500770FD7 /* UserRepositoryProtocol.swift in Sources */,
 				6E0351902B2BE1F700E2EB0F /* GradientView.swift in Sources */,
 				6E693E192B269C2900B82F1F /* DestinationSettingVC.swift in Sources */,
+				6E7486F62B3BE43900621503 /* OnboardingVC.swift in Sources */,
 				6E693E232B26F98E00B82F1F /* InitialSettingsPageVC.swift in Sources */,
 				6EAC34CB2B2C1B7D00BC471E /* UITextField+Ext.swift in Sources */,
 				6EAC34D22B2C1C7C00BC471E /* GoogleButton.swift in Sources */,
@@ -1050,6 +1065,7 @@
 				37A9C2512B2E0363008BCB10 /* LoginUseCaseProtocol.swift in Sources */,
 				37875B912B373F9C002B3610 /* FirestoreUserRepository.swift in Sources */,
 				37875B972B374235002B3610 /* FirestoreField.swift in Sources */,
+				6E7486F32B3BE09D00621503 /* SceneManager.swift in Sources */,
 				6E03518C2B2ADEDF00E2EB0F /* AlarmNameSettingVM.swift in Sources */,
 				378796EA2B3B3F9600770FD7 /* UserRepository.swift in Sources */,
 				6E693E152B22EF2E00B82F1F /* BottomSheetView.swift in Sources */,

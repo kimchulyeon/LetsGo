@@ -42,6 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // HOME
 //        window?.rootViewController = BaseTabBarController()
+        
+        // ONBOARDING
+//        window?.rootViewController = OnboardingVC()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

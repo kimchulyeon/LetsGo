@@ -117,10 +117,10 @@ class LoginVC: UIViewController {
             .subscribe { isSucceed in
                 if isSucceed {
                     print("성공 >>>> ")
-                    // InitialSetting 으로 이동
+                    let vc = OnboardingVC()
+                    SceneManager.shared.changeRootViewController(to: vc)
                 } else {
                     print("실패 >>>> ")
-                    // 실패 알럿 띄워줘야하나?
                 }
             }
             .disposed(by: bag)
