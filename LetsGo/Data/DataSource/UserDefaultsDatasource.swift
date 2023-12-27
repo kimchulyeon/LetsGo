@@ -12,7 +12,6 @@ class UserDefaultsDatasource: UserDefaultsDatasourceProtocol {
     func saveUser(_ user: User) {
         let encoder = JSONEncoder()
         if let encodedUser = try? encoder.encode(user) {
-            print("저장 >>>> \(encodedUser)")
             UserDefaults.standard.set(encodedUser, forKey: UserDefaultsKey.user)
         }
     }
@@ -24,5 +23,9 @@ class UserDefaultsDatasource: UserDefaultsDatasourceProtocol {
             return user
         }
         return nil
+    }
+    
+    func removeSavedUser() {
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.user)
     }
 }

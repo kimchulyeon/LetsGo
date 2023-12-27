@@ -201,7 +201,7 @@ class AlarmTableCell: UITableViewCell {
         attributedString.addAttributes([.font: ThemeFont.demiBold(size: 14), .foregroundColor: ThemeColor.moreWeakText], range: nsRange)
         timeLabel.attributedText = attributedString
         
-        nameLabel.text = data.alarmTitme
+        nameLabel.text = data.alarmName
         
         let transportationText = "\(data.transportationType.emoji) 로"
         let t_attributedString = NSMutableAttributedString(string: transportationText)

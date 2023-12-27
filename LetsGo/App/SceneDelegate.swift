@@ -17,34 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         
-        // SETTING
-//        let viewModel = InitialSettingsPageVM()
-//        window?.rootViewController = InitialSettingsPageVC(viewModel: viewModel)
-        
-
-        // LOGIN
-        let userDefaultsDatasource = UserDefaultsDatasource()
-        let appleRepository = AppleLoginRepository(dataSource: userDefaultsDatasource)
-        let googleRepository = GoogleLoginRepository()
-        let sceneRepository = SceneRepository()
-        let firebaseRepository = FirebaseRepository()
-        let firestoreUserRepository = FirestoreUserRepository()
-        let userRepository = UserRepository(userDefaultsDatasource: userDefaultsDatasource)
-        let loginUseCase = LoginUseCase(appleRepository: appleRepository,
-                                        googleRepository: googleRepository,
-                                        sceneRepository: sceneRepository,
-                                        firebaseRepository: firebaseRepository,
-                                        firestoreUserRepository: firestoreUserRepository, 
-                                        userRepository: userRepository)
-        let loginViewModel = LoginVM(loginUseCase: loginUseCase)
-        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
-        window?.rootViewController = navigationController
-        
-        // HOME
-//        window?.rootViewController = BaseTabBarController()
-        
-        // ONBOARDING
-//        window?.rootViewController = OnboardingVC()
+        setupRootViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -78,5 +51,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+    private func setupRootViewController() {
+        let userDefaultsDatasource = UserDefaultsDatasource()
+        
+        if let _ =  userDefaultsDatasource.getSavedUser() {
+            let vc = BaseTabBarController()
+            SceneManager.shared.changeRootViewController(to: vc)
+        } else {
+            let appleRepository = AppleLoginRepository(dataSource: userDefaultsDatasource)
+            let googleRepository = GoogleLoginRepository()
+            let sceneRepository = SceneRepository()
+            let firebaseRepository = FirebaseRepository()
+            let firestoreUserRepository = FirestoreUserRepository()
+            let userRepository = UserRepository(userDefaultsDatasource: userDefaultsDatasource)
+            let loginUseCase = LoginUseCase(appleRepository: appleRepository,
+                                            googleRepository: googleRepository,
+                                            sceneRepository: sceneRepository,
+                                            firebaseRepository: firebaseRepository,
+                                            firestoreUserRepository: firestoreUserRepository,
+                                            userRepository: userRepository)
+            let loginViewModel = LoginVM(loginUseCase: loginUseCase)
+            let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
+            window?.rootViewController = navigationController
+        }
+    }
 }
 

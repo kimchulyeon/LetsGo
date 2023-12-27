@@ -174,8 +174,10 @@ class DestinationSettingVC: UIViewController {
         locationTableView.rx.itemSelected
            .subscribe(onNext: { [unowned self] indexPath in
                searchTextField.textField.endEditing(true)
+               
                let selectedLocation = output.searchedLocationLists.value[indexPath.row]
                locationTableView.deselectRow(at: indexPath, animated: true)
+               viewModel.selectedLocation.onNext(selectedLocation)
                
                presentBottomSheet(with: output, and: selectedLocation)
            })

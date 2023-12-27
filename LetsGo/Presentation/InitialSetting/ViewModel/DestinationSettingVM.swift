@@ -24,6 +24,8 @@ class DestinationSettingVM {
         let buttonType = BehaviorRelay<SearchType>(value: .keyword)
     }
     
+    let selectedLocation = PublishSubject<Location>()
+    
     // MARK: - lifecycle
     init(locationUseCase: LocationUseCaseProtocol) {
         self.locationUseCase = locationUseCase

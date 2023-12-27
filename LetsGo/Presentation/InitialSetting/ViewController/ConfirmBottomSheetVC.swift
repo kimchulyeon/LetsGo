@@ -81,8 +81,6 @@ class ConfirmBottomSheetVC: UIViewController {
                 
                 if let location = location,
                    let presentingVC = weakSelf.presentingViewController as? InitialSettingsPageVC {
-                    
-                    print("선택한 출발지 / 도착지 : \(location)")
                     presentingVC.goToNextPage()
                 }
                 

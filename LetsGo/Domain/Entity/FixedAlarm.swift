@@ -6,23 +6,19 @@
 //
 
 import Foundation
-import CoreLocation
 
-struct Alarm: Equatable {
+struct Alarm {
     let id: UUID = UUID()
-    let isOn: Bool = true
-    let alarmTitme: String
+    var isOn: Bool = true
+    var alarmName: String
     let createdAt: Date = Date()
-    let transportationType: Transportation   // 교통수단
-    let departurePlaceName: String           // ✅ 출발장소이름
-    let destinationPlaceName: String         // ✅ 도착장소이름
-    let departureLocation: CLLocation        // 출발지 좌표
-    let destinationLocation: CLLocation      // 도착지 좌표
-    let days: [DayOfWeek]                     // 선택 요일
-    let arriveHour: Int                       // 도착 시
-    let arriveMinute: Int                     // 도착 분
-    let floatTime: Int                        // 도착까지 여유 시간
+    var transportationType: Transportation   // 교통수단
+    var departurePlaceName: String           // ✅ 출발장소이름
+    var destinationPlaceName: String         // ✅ 도착장소이름
+    var departureLocation: Location?        // 출발지 좌표
+    var destinationLocation: Location?      // 도착지 좌표
+    var days: [DayOfWeek]                     // 선택 요일
+    var arriveHour: Int                       // 도착 시
+    var arriveMinute: Int                     // 도착 분
+    var floatTime: Int                        // 도착까지 여유 시간
 }
-
-
-

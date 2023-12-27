@@ -22,7 +22,7 @@ class AlarmListVM {
     }
     
     struct Output {
-        let alarmList = BehaviorSubject<[Alarm]>(value: Test.alarmList)
+        let alarmList = BehaviorSubject<[Alarm]>(value: [])
         let addButtonTapped = PublishRelay<Void>()
     }
     

@@ -18,6 +18,10 @@
 		378796E72B3B34B700770FD7 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796E62B3B34B700770FD7 /* Auth.swift */; };
 		378796EA2B3B3F9600770FD7 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796E92B3B3F9600770FD7 /* UserRepository.swift */; };
 		378796ED2B3B3FA500770FD7 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796EC2B3B3FA500770FD7 /* UserRepositoryProtocol.swift */; };
+		378796EF2B3C699200770FD7 /* InitialSettingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796EE2B3C699200770FD7 /* InitialSettingUseCase.swift */; };
+		378796F12B3C69A000770FD7 /* InitialSettingUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796F02B3C69A000770FD7 /* InitialSettingUseCaseProtocol.swift */; };
+		378796F32B3C6A3600770FD7 /* AlarmTimeCalculateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796F22B3C6A3600770FD7 /* AlarmTimeCalculateRepository.swift */; };
+		378796F52B3C6A4300770FD7 /* AlarmTimeCalculateRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378796F42B3C6A4300770FD7 /* AlarmTimeCalculateRepositoryProtocol.swift */; };
 		37A9C2452B2D7681008BCB10 /* 한국기계연구원_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A9C2432B2D7681008BCB10 /* 한국기계연구원_bold.ttf */; };
 		37A9C2462B2D7681008BCB10 /* 한국기계연구원_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A9C2442B2D7681008BCB10 /* 한국기계연구원_Light.ttf */; };
 		37A9C2482B2DFC74008BCB10 /* TextConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9C2472B2DFC74008BCB10 /* TextConstant.swift */; };
@@ -120,7 +124,6 @@
 		6EE6D1292B31533E00B1A38A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */; };
 		6EF6B72E2B2A9EE30016F342 /* ComposeAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B72D2B2A9EE30016F342 /* ComposeAlarmVC.swift */; };
 		6EF6B7302B2A9F180016F342 /* ComposeAlarmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B72F2B2A9F180016F342 /* ComposeAlarmVM.swift */; };
-		6EF6B7332B2ABEDC0016F342 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6B7322B2ABEDC0016F342 /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,10 @@
 		378796E62B3B34B700770FD7 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		378796E92B3B3F9600770FD7 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		378796EC2B3B3FA500770FD7 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		378796EE2B3C699200770FD7 /* InitialSettingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingUseCase.swift; sourceTree = "<group>"; };
+		378796F02B3C69A000770FD7 /* InitialSettingUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingUseCaseProtocol.swift; sourceTree = "<group>"; };
+		378796F22B3C6A3600770FD7 /* AlarmTimeCalculateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimeCalculateRepository.swift; sourceTree = "<group>"; };
+		378796F42B3C6A4300770FD7 /* AlarmTimeCalculateRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimeCalculateRepositoryProtocol.swift; sourceTree = "<group>"; };
 		37A9C2432B2D7681008BCB10 /* 한국기계연구원_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "한국기계연구원_bold.ttf"; sourceTree = "<group>"; };
 		37A9C2442B2D7681008BCB10 /* 한국기계연구원_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "한국기계연구원_Light.ttf"; sourceTree = "<group>"; };
 		37A9C2472B2DFC74008BCB10 /* TextConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstant.swift; sourceTree = "<group>"; };
@@ -244,7 +251,6 @@
 		6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		6EF6B72D2B2A9EE30016F342 /* ComposeAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeAlarmVC.swift; sourceTree = "<group>"; };
 		6EF6B72F2B2A9F180016F342 /* ComposeAlarmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeAlarmVM.swift; sourceTree = "<group>"; };
-		6EF6B7322B2ABEDC0016F342 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				3756A8CD2B220C8E00A5ECA6 /* LocationUseCaseProtocol.swift */,
+				378796F02B3C69A000770FD7 /* InitialSettingUseCaseProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				3756A8CF2B220E5700A5ECA6 /* LocationSearchRepositoryProtocol.swift */,
+				378796F42B3C6A4300770FD7 /* AlarmTimeCalculateRepositoryProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 			children = (
 				3756A8CA2B220C6000A5ECA6 /* Protocol */,
 				6E758CFB2B217AC6008C3DDC /* LocationUseCase.swift */,
+				378796EE2B3C699200770FD7 /* InitialSettingUseCase.swift */,
 			);
 			path = InitialSetting;
 			sourceTree = "<group>";
@@ -377,6 +386,7 @@
 			children = (
 				3756A8CB2B220C7100A5ECA6 /* Protocol */,
 				6E758CF92B2179F1008C3DDC /* LocationSearchRepository.swift */,
+				378796F22B3C6A3600770FD7 /* AlarmTimeCalculateRepository.swift */,
 			);
 			path = InitialSetting;
 			sourceTree = "<group>";
@@ -810,7 +820,6 @@
 			isa = PBXGroup;
 			children = (
 				6E758D042B219191008C3DDC /* Network.swift */,
-				6EF6B7322B2ABEDC0016F342 /* Test.swift */,
 				37A9C2472B2DFC74008BCB10 /* TextConstant.swift */,
 				6EE6D1282B31533E00B1A38A /* UserDefaultsKey.swift */,
 				37875B962B374235002B3610 /* FirestoreField.swift */,
@@ -1055,8 +1064,10 @@
 				6E758D092B21ABCF008C3DDC /* SearchTypeButtonView.swift in Sources */,
 				6E1727792B282B4700BCF666 /* AlarmTableCell.swift in Sources */,
 				6E03518A2B2ADEC600E2EB0F /* AlarmNameSettingVC.swift in Sources */,
+				378796F52B3C6A4300770FD7 /* AlarmTimeCalculateRepositoryProtocol.swift in Sources */,
 				6E758CD62B2008CC008C3DDC /* ThemeFont.swift in Sources */,
 				6E758CC92B1FFDB2008C3DDC /* SelectButton.swift in Sources */,
+				378796EF2B3C699200770FD7 /* InitialSettingUseCase.swift in Sources */,
 				6E758CBC2B1F0A9B008C3DDC /* OnboardingViewModel.swift in Sources */,
 				6EAC34F02B2C248200BC471E /* FirebaseService.swift in Sources */,
 				6E693E132B22E9BE00B82F1F /* ConfirmBottomSheetVC.swift in Sources */,
@@ -1082,7 +1093,6 @@
 				6E758CE82B205788008C3DDC /* DayOfWeekSettingVM.swift in Sources */,
 				6E758CF82B216AD4008C3DDC /* LocationSearchDatasource.swift in Sources */,
 				6E758C5E2B1DC615008C3DDC /* LetsGo.xcdatamodeld in Sources */,
-				6EF6B7332B2ABEDC0016F342 /* Test.swift in Sources */,
 				6EAC34F92B2C289C00BC471E /* AppleAuthButton+Rx.swift in Sources */,
 				6E693E1D2B26BD4800B82F1F /* ArrivalTimeSettingVC.swift in Sources */,
 				6EE6D1292B31533E00B1A38A /* UserDefaultsKey.swift in Sources */,
@@ -1090,6 +1100,7 @@
 				378796E72B3B34B700770FD7 /* Auth.swift in Sources */,
 				6EAC34F12B2C248200BC471E /* AppleService.swift in Sources */,
 				6E67C8142B283B82007F5121 /* MarkingWeekView.swift in Sources */,
+				378796F32B3C6A3600770FD7 /* AlarmTimeCalculateRepository.swift in Sources */,
 				6E693E252B27020C00B82F1F /* InitialSettingsPageVM.swift in Sources */,
 				6E1727752B28173000BCF666 /* AppSettingVC.swift in Sources */,
 				6E758D002B218F32008C3DDC /* Location.swift in Sources */,
@@ -1099,6 +1110,7 @@
 				6E758D102B22BA47008C3DDC /* LocationCellBadgeView.swift in Sources */,
 				6E758C562B1DC615008C3DDC /* SceneDelegate.swift in Sources */,
 				37A9C2562B2E03C9008BCB10 /* GoogleLoginRepository.swift in Sources */,
+				378796F12B3C69A000770FD7 /* InitialSettingUseCaseProtocol.swift in Sources */,
 				6E758CEE2B215246008C3DDC /* InitialSettingTextField.swift in Sources */,
 				6E17276B2B28131400BCF666 /* AlarmListVM.swift in Sources */,
 				6E758CC12B1F0ACF008C3DDC /* TransportationSettingVC.swift in Sources */,
