@@ -61,6 +61,12 @@ class LoginVC: UIViewController {
         
         setupUI()
         bindViewModel()
+        
+        appleButton.rx.tap
+            .subscribe { _ in
+                print("TAP >>>>")
+            }
+            .disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

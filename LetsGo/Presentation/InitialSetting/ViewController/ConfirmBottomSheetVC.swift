@@ -77,10 +77,9 @@ class ConfirmBottomSheetVC: UIViewController {
         
         output.dismissBottomSheet
             .subscribe { [weak self] location in
-                guard let weakSelf = self, let location = location.element else { return }
+                guard let weakSelf = self else { return }
                 
-                if let location = location,
-                   let presentingVC = weakSelf.presentingViewController as? InitialSettingsPageVC {
+                if let presentingVC = weakSelf.presentingViewController as? InitialSettingsPageVC {
                     presentingVC.goToNextPage()
                 }
                 

@@ -35,7 +35,8 @@ class InitialSettingsPageVM {
                                     arriveMinute: 0,
                                     floatTime: 0)
     private var initialAlarmObservable: Observable<Alarm> {
-        Observable.just(initialAlarm)
+        print(initialAlarm)
+        return Observable.just(initialAlarm)
     }
     private var isInitialAlarmSettingFinish = BehaviorSubject<Bool>(value: false)
     

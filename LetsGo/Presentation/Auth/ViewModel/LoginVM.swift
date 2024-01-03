@@ -40,9 +40,10 @@ class LoginVM {
             .flatMapLatest { (self, _) in
                 output.isLoading.onNext(true)
                 return self.loginUseCase.oauthLogin(type: .Apple)
+                    .catchAndReturn(.fail(LoginError.oauthLoginFailed("")))
             }
             .subscribe { result in
-                output.isLoading.onNext(false)
+                output.isLoading.onNext(false) //
                 
                 switch result.element {
                 case .success(let user):
@@ -50,7 +51,8 @@ class LoginVM {
                     output.loginResult.onNext(true)
                 case .fail: 
                     output.loginResult.onNext(false)
-                default: break
+                default: 
+                    output.loginResult.onNext(false)
                 }
             }
             .disposed(by: bag)
@@ -61,9 +63,10 @@ class LoginVM {
             .flatMapLatest { (self, _) in
                 output.isLoading.onNext(true)
                 return self.loginUseCase.oauthLogin(type: .Google)
+                    .catchAndReturn(.fail(LoginError.oauthLoginFailed("")))
             }
             .subscribe { result in
-                output.isLoading.onNext(false)
+                output.isLoading.onNext(false) //
                 
                 switch result.element {
                 case .success(let user):
@@ -71,7 +74,8 @@ class LoginVM {
                     output.loginResult.onNext(true)
                 case .fail: 
                     output.loginResult.onNext(false)
-                default: break
+                default:
+                    output.loginResult.onNext(false)
                 }
             }
             .disposed(by: bag)

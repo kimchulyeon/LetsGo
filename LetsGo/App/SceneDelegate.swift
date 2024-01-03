@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
 //        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.user)
-        setupRootViewController()
+//        setupRootViewController()
+        test()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -75,6 +76,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
             window?.rootViewController = navigationController
         }
+    }
+    
+    private func test() {
+        let userDefaultsDatasource = UserDefaultsDatasource()
+        let appleRepository = AppleLoginRepository(dataSource: userDefaultsDatasource)
+        let googleRepository = GoogleLoginRepository()
+        let sceneRepository = SceneRepository()
+        let firebaseRepository = FirebaseRepository()
+        let firestoreUserRepository = FirestoreUserRepository()
+        let userRepository = UserRepository(userDefaultsDatasource: userDefaultsDatasource)
+        let loginUseCase = LoginUseCase(appleRepository: appleRepository,
+                                        googleRepository: googleRepository,
+                                        sceneRepository: sceneRepository,
+                                        firebaseRepository: firebaseRepository,
+                                        firestoreUserRepository: firestoreUserRepository,
+                                        userRepository: userRepository)
+        let loginViewModel = LoginVM(loginUseCase: loginUseCase)
+        let navigationController = UINavigationController(rootViewController: LoginVC(viewModel: loginViewModel))
+        window?.rootViewController = navigationController
     }
 }
 
