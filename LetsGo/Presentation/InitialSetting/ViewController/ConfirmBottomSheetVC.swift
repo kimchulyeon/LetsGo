@@ -76,14 +76,14 @@ class ConfirmBottomSheetVC: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.dismissBottomSheet
-            .subscribe { [weak self] location in
-                guard let weakSelf = self else { return }
-                
-                if let presentingVC = weakSelf.presentingViewController as? InitialSettingsPageVC {
+            .withUnretained(self)
+            .subscribe { (self, location) in
+                if let _ = location,
+                   let presentingVC = self.presentingViewController as? InitialSettingsPageVC {
                     presentingVC.goToNextPage()
                 }
                 
-                weakSelf.dismiss(animated: true)
+                self.dismiss(animated: true)
             }
             .disposed(by: bag)
         

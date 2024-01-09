@@ -124,7 +124,7 @@ class InitialSettingsPageVM {
             .subscribe { (self, name) in
                 self.initialAlarm.alarmName = name
                 self.isInitialAlarmSettingFinish.onNext(true)
-//                self.calculateAlarmTime(with: self.initialAlarm)
+                self.calculateAlarmTime(with: self.initialAlarm)
 //                self.moveToHomeScene()
             }
             .disposed(by: bag)
@@ -146,6 +146,7 @@ class InitialSettingsPageVM {
     }
     
     func goToNextPage() {
+        print("다음 페이지로 이동 >>>>")
         let CURRENT = currentPage.value
         currentPage.accept(CURRENT + 1)
     }
