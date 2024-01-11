@@ -28,9 +28,8 @@ class TransportationSettingVC: UIViewController {
     private let button1 = SelectButton(text: "도보", emoji: "🦶")
     private let button2 = SelectButton(text: "대중교통", emoji: "🚇")
     private let button3 = SelectButton(text: "자동차", emoji: "🚘")
-    private let button4 = SelectButton(text: "자전거", emoji: "🚴")
     private lazy var buttonStackView: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [button1, button2, button3, button4])
+        let sv = UIStackView(arrangedSubviews: [button1, button2, button3])
         sv.axis = .vertical
         sv.spacing = 16
         sv.distribution = .fillEqually

@@ -124,6 +124,9 @@ class InitialSettingsPageVM {
             .subscribe { (self, name) in
                 self.initialAlarm.alarmName = name
                 self.isInitialAlarmSettingFinish.onNext(true)
+                /**
+                    MapKit으로 교통수단 + 출발지 + 도착지    =>    걸리는 시간 계산하기
+                 */
                 self.calculateAlarmTime(with: self.initialAlarm)
 //                self.moveToHomeScene()
             }
@@ -132,7 +135,9 @@ class InitialSettingsPageVM {
         isInitialAlarmSettingFinish
             .subscribe { isFinish in
                 if isFinish == false { return }
-                
+                /**
+                 초기 세팅이 끝나면 파이어스토어에 저장
+                 */
             }
             .disposed(by: bag)
     }

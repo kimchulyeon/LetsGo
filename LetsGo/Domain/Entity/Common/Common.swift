@@ -12,7 +12,6 @@ enum Transportation: String, CaseIterable {
     case walk = "도보"
     case `public` = "대중교통"
     case car = "자동차"
-    case bike = "자전거"
     case none = ""
     
     var emoji: String {
@@ -23,8 +22,6 @@ enum Transportation: String, CaseIterable {
             "🚇"
         case .car:
             "🚘"
-        case .bike:
-            "🚴"
         case .none:
             ""
         }
